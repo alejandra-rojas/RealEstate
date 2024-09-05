@@ -14,6 +14,21 @@ public class PortfolioContext(DbContextOptions<PortfolioContext> options) : DbCo
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<Property>()
+            .HasOne<PropertyDetails>()
+            .WithMany()
+            .HasForeignKey(p => p.PropertyDetailsId);
+
+        modelBuilder.Entity<Property>()
+            .HasOne<Seller>()
+            .WithMany()
+            .HasForeignKey(p => p.SellerId);
+
+        modelBuilder.Entity<Property>()
+            .HasOne<Agent>()
+            .WithMany(a => a.Properties)
+            .HasForeignKey(p => p.PropertyLiasonAgentId);
+
+        modelBuilder.Entity<Property>()
             .Property(p => p.AgreedCommission)
             .HasPrecision(18, 2);
 

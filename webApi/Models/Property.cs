@@ -6,11 +6,11 @@ public class Property
     [Key]
     public int PropertyId { get; private set; }
 
-    public required PropertyDetails PropertyDetails { get; set; }
+    public int PropertyDetailsId { get; set; }
 
-    public required Seller Seller { get; set; }
+    public int SellerId { get; set; }
 
-    public required Agent PropertyLiason { get; set; }
+    public int PropertyLiasonAgentId { get; set; }
 
     public int SalePrice { get; set; }
 
