@@ -8,6 +8,7 @@ public class Agent
     public int AgentId { get; private set; }
     public required string Name { get; set; }
     public required string PrimaryNumber { get; set; }
+    public required string Email { get; set; }
     public string? Photo { get; set; }
     public ICollection<Property> Properties { get; set; } = new List<Property>();
 }
