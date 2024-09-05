@@ -1,8 +1,10 @@
+using System.ComponentModel.DataAnnotations;
 namespace webApi.Models;
+
 public class Property
 {
-
-    public int PropertyId { get; set; }
+    [Key]
+    public int PropertyId { get; private set; }
 
     public required PropertyDetails PropertyDetails { get; set; }
 
@@ -16,7 +18,7 @@ public class Property
 
     public Status Status { get; set; }
 
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
 
 }
 
