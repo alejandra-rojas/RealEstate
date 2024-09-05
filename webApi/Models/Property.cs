@@ -14,6 +14,16 @@ public class Property
 
     public decimal AgreedCommission { get; set; }
 
+    public Status Status { get; set; }
+
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
+}
+
+public enum Status
+{
+    Active,
+    UnderOffer,
+    Sold,
+    Inactive
 }
