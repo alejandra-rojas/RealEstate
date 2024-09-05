@@ -8,9 +8,9 @@ namespace webApi.Controllers
     [ApiController]
     public class PropertiesController : ControllerBase
     {
-        private readonly PortfolioContext _context;
+        private readonly PortfolioDbContext _context;
 
-        public PropertiesController(PortfolioContext context)
+        public PropertiesController(PortfolioDbContext context)
         {
             _context = context;
         }

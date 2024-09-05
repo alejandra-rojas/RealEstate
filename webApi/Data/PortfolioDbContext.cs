@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using webApi.Models;
 
-public class PortfolioContext(DbContextOptions<PortfolioContext> options) : DbContext(options)
+public class PortfolioDbContext(DbContextOptions<PortfolioDbContext> options) : DbContext(options)
 {
     public DbSet<Property> Properties { get; set; }
     public DbSet<Agent> Agents { get; set; }
