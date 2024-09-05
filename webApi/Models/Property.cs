@@ -12,7 +12,7 @@ public class Property
 
     public required Agent PropertyLiason { get; set; }
 
-    public decimal SalePrice { get; set; }
+    public int SalePrice { get; set; }
 
     public decimal AgreedCommission { get; set; }
 
