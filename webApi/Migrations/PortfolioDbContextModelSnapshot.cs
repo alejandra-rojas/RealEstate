@@ -49,6 +49,58 @@ namespace webApi.Migrations
                     b.ToTable("Agents");
                 });
 
+            modelBuilder.Entity("webApi.Models.Buyer", b =>
+                {
+                    b.Property<int>("BuyerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BuyerId"));
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PrimaryNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PropertyId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BuyerId");
+
+                    b.ToTable("Buyers");
+                });
+
+            modelBuilder.Entity("webApi.Models.Event", b =>
+                {
+                    b.Property<int>("EventId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EventId"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PropertyId")
+                        .HasColumnType("int");
+
+                    b.HasKey("EventId");
+
+                    b.HasIndex("PropertyId");
+
+                    b.ToTable("Events");
+                });
+
             modelBuilder.Entity("webApi.Models.Property", b =>
                 {
                     b.Property<int>("PropertyId")
@@ -57,9 +109,11 @@ namespace webApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PropertyId"));
 
-                    b.Property<decimal>("AgreedCommission")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("AgreedCommission")
+                        .HasColumnType("float");
+
+                    b.Property<int>("BuyerId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -81,7 +135,10 @@ namespace webApi.Migrations
 
                     b.HasKey("PropertyId");
 
-                    b.HasIndex("PropertyDetailsId");
+                    b.HasIndex("BuyerId");
+
+                    b.HasIndex("PropertyDetailsId")
+                        .IsUnique();
 
                     b.HasIndex("PropertyLiasonAgentId");
 
@@ -98,21 +155,22 @@ namespace webApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PropertyDetailsId"));
 
-                    b.Property<decimal>("ConstructionSizeInSquareMeters")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("ConstructionSizeInSquareMeters")
+                        .HasColumnType("float");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("LandSizeInSquareMeters")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("LandSizeInSquareMeters")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("NumberOfRooms")
-                        .HasPrecision(18, 1)
-                        .HasColumnType("decimal(18,1)");
+                    b.Property<double>("NumberOfRooms")
+                        .HasColumnType("float");
 
                     b.Property<string>("Photo")
                         .IsRequired()
@@ -154,11 +212,28 @@ namespace webApi.Migrations
                     b.ToTable("Sellers");
                 });
 
+            modelBuilder.Entity("webApi.Models.Event", b =>
+                {
+                    b.HasOne("webApi.Models.Property", "Property")
+                        .WithMany("Events")
+                        .HasForeignKey("PropertyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Property");
+                });
+
             modelBuilder.Entity("webApi.Models.Property", b =>
                 {
-                    b.HasOne("webApi.Models.PropertyDetails", null)
+                    b.HasOne("webApi.Models.Buyer", null)
                         .WithMany()
-                        .HasForeignKey("PropertyDetailsId")
+                        .HasForeignKey("BuyerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("webApi.Models.PropertyDetails", "PropertyDetails")
+                        .WithOne("Property")
+                        .HasForeignKey("webApi.Models.Property", "PropertyDetailsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -173,11 +248,23 @@ namespace webApi.Migrations
                         .HasForeignKey("SellerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("PropertyDetails");
                 });
 
             modelBuilder.Entity("webApi.Models.Agent", b =>
                 {
                     b.Navigation("Properties");
+                });
+
+            modelBuilder.Entity("webApi.Models.Property", b =>
+                {
+                    b.Navigation("Events");
+                });
+
+            modelBuilder.Entity("webApi.Models.PropertyDetails", b =>
+                {
+                    b.Navigation("Property");
                 });
 #pragma warning restore 612, 618
         }
