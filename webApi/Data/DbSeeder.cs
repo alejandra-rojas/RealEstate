@@ -20,25 +20,29 @@ public static class DbSeeder
                 {
                     Name = "James Clark",
                     PrimaryNumber = "735 102-0944",
-                    Email = "james.clark@drealestate.com"
+                    Email = "james.clark@drealestate.com",
+                    Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/agent3.png"
                 },
                 new Agent
                 {
                     Name = "Sophia Martinez",
                     PrimaryNumber = "735 392-3664",
-                    Email = "sophia.martinez@drealestate.com"
+                    Email = "sophia.martinez@drealestate.com",
+                    Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/agent2.png"
                 },
                 new Agent
                 {
                     Name = "Ethan Brooks",
                     PrimaryNumber = "735 392-4654",
-                    Email = "ethan.brooks@drealestate.com"
+                    Email = "ethan.brooks@drealestate.com",
+                    Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/agent4.png"
                 },
                 new Agent
                 {
                     Name = "Betty Maldonado",
                     PrimaryNumber = "735 102-4654",
-                    Email = "betty.maldonado@drealestate.com"
+                    Email = "betty.maldonado@drealestate.com",
+                    Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/agent1.png"
                 }
             };
 
@@ -108,7 +112,8 @@ public static class DbSeeder
                     ConstructionSizeInSquareMeters = 120,
                     NumberOfRooms = 4,
                     Description = "Beautiful apartment with an ocean view.",
-                    PropertyId = 1
+                    PropertyId = 1,
+                    Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop1.jpg"
                 },
                 new PropertyDetails
                 {
@@ -118,7 +123,8 @@ public static class DbSeeder
                     ConstructionSizeInSquareMeters = 350,
                     NumberOfRooms = 6,
                     Description = "Luxury retreat in the mountains.",
-                    PropertyId = 2
+                    PropertyId = 2,
+                    Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop2.jpg"
                 },
                 new PropertyDetails
                 {
@@ -128,7 +134,8 @@ public static class DbSeeder
                     ConstructionSizeInSquareMeters = 90,
                     NumberOfRooms = 3,
                     Description = "Modern loft in the heart of the city.",
-                    PropertyId = 3
+                    PropertyId = 3,
+                    Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop3.jpg"
                 },
                 new PropertyDetails
                 {
@@ -138,7 +145,8 @@ public static class DbSeeder
                     ConstructionSizeInSquareMeters = 150,
                     NumberOfRooms = 5,
                     Description = "Villa with a lakeside view and private dock.",
-                    PropertyId = 4
+                    PropertyId = 4,
+                    Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop4.jpg"
                 },
                 new PropertyDetails
                 {
@@ -148,7 +156,8 @@ public static class DbSeeder
                     ConstructionSizeInSquareMeters = 220,
                     NumberOfRooms = 7,
                     Description = "Family-friendly home in the suburbs.",
-                    PropertyId = 5
+                    PropertyId = 5,
+                    Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop5.jpg"
                 },
                 new PropertyDetails
                 {
@@ -158,7 +167,8 @@ public static class DbSeeder
                     ConstructionSizeInSquareMeters = 200,
                     NumberOfRooms = 4,
                     Description = "Luxury penthouse with a skyline view.",
-                    PropertyId = 6
+                    PropertyId = 6,
+                    Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop6.jpg"
                 },
                 new PropertyDetails
                 {
@@ -168,7 +178,8 @@ public static class DbSeeder
                     ConstructionSizeInSquareMeters = 100,
                     NumberOfRooms = 3,
                     Description = "Charming cottage in the countryside.",
-                    PropertyId = 7
+                    PropertyId = 7,
+                    Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop7.jpg"
                 },
                 new PropertyDetails
                 {
@@ -178,7 +189,8 @@ public static class DbSeeder
                     ConstructionSizeInSquareMeters = 75,
                     NumberOfRooms = 2,
                     Description = "Convenient downtown living.",
-                    PropertyId = 8
+                    PropertyId = 8,
+                    Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop8.jpg"
                 },
                 new PropertyDetails
                 {
@@ -188,7 +200,8 @@ public static class DbSeeder
                     ConstructionSizeInSquareMeters = 500,
                     NumberOfRooms = 10,
                     Description = "Historic mansion with modern amenities.",
-                    PropertyId = 9
+                    PropertyId = 9,
+                    Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop9.jpg"
                 },
                 new PropertyDetails
                 {
@@ -198,7 +211,8 @@ public static class DbSeeder
                     ConstructionSizeInSquareMeters = 130,
                     NumberOfRooms = 4,
                     Description = "Cozy bungalow right on the beach.",
-                    PropertyId = 10
+                    PropertyId = 10,
+                    Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop10.jpg"
                 },
                 new PropertyDetails
                 {
@@ -208,7 +222,8 @@ public static class DbSeeder
                     ConstructionSizeInSquareMeters = 800,
                     NumberOfRooms = 12,
                     Description = "Expansive luxury estate in a prime location.",
-                    PropertyId = 11
+                    PropertyId = 11,
+                    Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop11.jpg"
                 },
                 new PropertyDetails
                 {
@@ -218,7 +233,8 @@ public static class DbSeeder
                     ConstructionSizeInSquareMeters = 200,
                     NumberOfRooms = 4,
                     Description = "Rustic cabin by the river.",
-                    PropertyId = 12
+                    PropertyId = 12,
+                    Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop13.jpg"
                 }
             };
 
