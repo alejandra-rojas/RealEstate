@@ -65,9 +65,6 @@ namespace webApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PropertyId")
-                        .HasColumnType("int");
-
                     b.HasKey("BuyerId");
 
                     b.ToTable("Buyers");
@@ -80,9 +77,6 @@ namespace webApi.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EventId"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -112,7 +106,7 @@ namespace webApi.Migrations
                     b.Property<double>("AgreedCommission")
                         .HasColumnType("float");
 
-                    b.Property<int>("BuyerId")
+                    b.Property<int?>("BuyerId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
@@ -204,9 +198,6 @@ namespace webApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PropertyId")
-                        .HasColumnType("int");
-
                     b.HasKey("SellerId");
 
                     b.ToTable("Sellers");
@@ -225,11 +216,9 @@ namespace webApi.Migrations
 
             modelBuilder.Entity("webApi.Models.Property", b =>
                 {
-                    b.HasOne("webApi.Models.Buyer", null)
-                        .WithMany()
-                        .HasForeignKey("BuyerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("webApi.Models.Buyer", "Buyer")
+                        .WithMany("Properties")
+                        .HasForeignKey("BuyerId");
 
                     b.HasOne("webApi.Models.PropertyDetails", "PropertyDetails")
                         .WithOne("Property")
@@ -237,22 +226,33 @@ namespace webApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("webApi.Models.Agent", null)
+                    b.HasOne("webApi.Models.Agent", "PropertyLiasonAgent")
                         .WithMany("Properties")
                         .HasForeignKey("PropertyLiasonAgentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("webApi.Models.Seller", null)
-                        .WithMany()
+                    b.HasOne("webApi.Models.Seller", "Seller")
+                        .WithMany("Properties")
                         .HasForeignKey("SellerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Buyer");
+
                     b.Navigation("PropertyDetails");
+
+                    b.Navigation("PropertyLiasonAgent");
+
+                    b.Navigation("Seller");
                 });
 
             modelBuilder.Entity("webApi.Models.Agent", b =>
+                {
+                    b.Navigation("Properties");
+                });
+
+            modelBuilder.Entity("webApi.Models.Buyer", b =>
                 {
                     b.Navigation("Properties");
                 });
@@ -265,6 +265,11 @@ namespace webApi.Migrations
             modelBuilder.Entity("webApi.Models.PropertyDetails", b =>
                 {
                     b.Navigation("Property");
+                });
+
+            modelBuilder.Entity("webApi.Models.Seller", b =>
+                {
+                    b.Navigation("Properties");
                 });
 #pragma warning restore 612, 618
         }
