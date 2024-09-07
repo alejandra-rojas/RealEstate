@@ -22,6 +22,8 @@ public class Property
 
     public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
 
+    public int BuyerId { get; set; }
+
 }
 
 public enum Status
