@@ -39,22 +39,6 @@ public class PortfolioDbContext(DbContextOptions<PortfolioDbContext> options) : 
             .WithOne(e => e.Property)
             .HasForeignKey(e => e.PropertyId);
 
-        modelBuilder.Entity<Property>()
-            .Property(p => p.AgreedCommission)
-            .HasPrecision(18, 2);
-
-        modelBuilder.Entity<PropertyDetails>()
-            .Property(pd => pd.LandSizeInSquareMeters)
-            .HasPrecision(18, 2);
-
-        modelBuilder.Entity<PropertyDetails>()
-            .Property(pd => pd.ConstructionSizeInSquareMeters)
-            .HasPrecision(18, 2);
-
-        modelBuilder.Entity<PropertyDetails>()
-            .Property(pd => pd.NumberOfRooms)
-            .HasPrecision(18, 1);
-
     }
 
 }

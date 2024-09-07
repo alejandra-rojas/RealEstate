@@ -14,7 +14,7 @@ public class Property
 
     public int SalePrice { get; set; }
 
-    public decimal AgreedCommission { get; set; }
+    public double AgreedCommission { get; set; }
 
     public Status Status { get; set; }
 
