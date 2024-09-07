@@ -36,13 +36,3 @@ public enum Status
     Inactive
 }
 
-public class Event
-{
-    [Key]
-    public int EventId { get; set; }
-    public required DateTime Date { get; set; }
-    public required string Description { get; set; }
-    public int PropertyId { get; set; }
-    public required Property Property { get; set; }
-    public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
-}
