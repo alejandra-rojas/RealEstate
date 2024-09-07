@@ -7,10 +7,10 @@ public interface IPortfolioRepository
 {
     IEnumerable<PublicPropertyDto> GetAll();
     IEnumerable<Property> GetAllFiles();
-    Property? GetOne(int id);
+    PublicPropertyDto? GetOne(int id);
+    Property? GetOneFile(int id);
 
     // Property Create();
-    // void Delete(string id);
-    // Property Update();
 
+    // Property Update();
 }

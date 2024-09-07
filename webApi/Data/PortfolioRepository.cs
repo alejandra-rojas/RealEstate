@@ -39,7 +39,7 @@ public class PortfolioRepository(PortfolioDbContext context) : IPortfolioReposit
 
     public IEnumerable<Property> GetAllFiles()
     {
-        return _context.Properties
+        return _properties
             .Include(p => p.PropertyDetails)
             .Include(p => p.Seller)
             .Include(p => p.PropertyLiasonAgent)
@@ -48,9 +48,40 @@ public class PortfolioRepository(PortfolioDbContext context) : IPortfolioReposit
             .AsEnumerable();
     }
 
-    public Property? GetOne(int id)
+    public PublicPropertyDto? GetOne(int id)
     {
-        throw new NotImplementedException();
+        var property = _properties
+            .Include(p => p.PropertyDetails)
+            .FirstOrDefault(p => p.PropertyId == id);
+
+        return property is null ? null : new PublicPropertyDto
+        {
+            CreatedAt = property.CreatedAt,
+            PropertyId = property.PropertyId,
+            SalePrice = property.SalePrice,
+            Status = property.Status,
+            PropertyName = property.PropertyDetails!.PropertyName,
+            Address = property.PropertyDetails.Address,
+            LandSizeInSquareMeters = property.PropertyDetails.LandSizeInSquareMeters,
+            ConstructionSizeInSquareMeters = property.PropertyDetails.ConstructionSizeInSquareMeters,
+            NumberOfRooms = property.PropertyDetails.NumberOfRooms,
+            Description = property.PropertyDetails.Description,
+            Photo = property.PropertyDetails.Photo
+        };
+
+    }
+
+    public Property? GetOneFile(int id)
+    {
+        var property = _properties
+            .Include(p => p.PropertyDetails)
+            .Include(p => p.Seller)
+            .Include(p => p.PropertyLiasonAgent)
+            .Include(p => p.Buyer)
+            .Include(p => p.Events)
+            .FirstOrDefault(p => p.PropertyId == id);
+
+        return property is null ? null : property;
     }
 
 }

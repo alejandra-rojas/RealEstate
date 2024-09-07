@@ -23,18 +23,21 @@ namespace webApi.Controllers
             return _repo.GetAllFiles();
         }
 
-        // [HttpGet("{id}")]
-        // public async Task<ActionResult<Property>> GetProperty(int id)
-        // {
-        //     var @property = await _repo.Properties.FindAsync(id);
+        [HttpGet("{id}")]
+        public ActionResult<PublicPropertyDto> GetById(int id)
+        {
+            return _repo.GetOne(id) is PublicPropertyDto property
+                ? property
+                : NotFound($"Property with Id '{id}' was not found");
+        }
 
-        //     if (@property == null)
-        //     {
-        //         return NotFound();
-        //     }
-
-        //     return @property;
-        // }
+        [HttpGet("files/{id}")]
+        public ActionResult<Property> GetOneFile(int id)
+        {
+            return _repo.GetOneFile(id) is Property property
+                ? property
+                : NotFound($"Property with Id '{id}' was not found");
+        }
 
 
     }
