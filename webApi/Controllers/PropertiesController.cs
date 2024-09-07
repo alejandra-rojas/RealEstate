@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using webApi.Data;
+using webApi.DTOs;
 using webApi.Models;
 
 namespace webApi.Controllers
@@ -9,6 +10,12 @@ namespace webApi.Controllers
     public class PropertiesController(IPortfolioRepository repo) : ControllerBase
     {
         private readonly IPortfolioRepository _repo = repo;
+
+        [HttpGet]
+        public IEnumerable<PublicPropertyDto> GetAll()
+        {
+            return _repo.GetAll();
+        }
 
         [HttpGet("files")]
         public IEnumerable<Property> GetAllPropertyFiles()
