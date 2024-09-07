@@ -363,6 +363,89 @@ public static class DbSeeder
             context.SaveChanges();
         }
 
+        if (!context.Events.Any())
+        {
+            var events = new List<Event>
+            {
+                new Event
+                {
+                    Date = new DateTime(2023, 12, 13),
+                    Description = "Signing of the commission agreement",
+                    PropertyId = 1
+                },
+                new Event
+                {
+                    Date = new DateTime(2024, 03, 08),
+                    Description = "Signing of the commission agreement",
+                    PropertyId = 2
+                },
+                new Event
+                {
+                    Date = new DateTime(2024, 06, 28),
+                    Description = "Buyer left deposit",
+                    PropertyId = 2
+                },
+                new Event
+                {
+                    Date = new DateTime(2024, 08, 13),
+                    Description = "Signing of the purchase agreement",
+                    PropertyId = 2
+                },
+                new Event
+                {
+                    Date = new DateTime(2024, 09, 23),
+                    Description = "Notary signing - handover of the house",
+                    PropertyId = 2
+                },
+                new Event
+                {
+                    Date = new DateTime(2024, 07, 23),
+                    Description = "Payment of the commission",
+                    PropertyId = 3
+                },
+                new Event
+                {
+                    Date = new DateTime(2024, 05, 01),
+                    Description = "Signing of the commission agreement",
+                    PropertyId = 4
+                },
+                new Event
+                {
+                    Date = new DateTime(2023, 08, 08),
+                    Description = "Signing of the commission agreement",
+                    PropertyId = 5
+                },
+                new Event
+                {
+                    Date = new DateTime(2024, 04, 10),
+                    Description = "Buyer left deposit",
+                    PropertyId = 5
+                },
+                new Event
+                {
+                    Date = new DateTime(2024, 05, 21),
+                    Description = "Signing of the purchase agreement",
+                    PropertyId = 5
+                },
+                new Event
+                {
+                    Date = new DateTime(2024, 04, 11),
+                    Description = "Payment of the commission",
+                    PropertyId = 6
+                },
+                new Event
+                {
+                    Date = new DateTime(2024, 05, 03),
+                    Description = "Payment of the commission",
+                    PropertyId = 7
+                },
 
+
+            };
+
+
+            context.AddRange(events);
+            context.SaveChanges();
+        }
     }
 }
