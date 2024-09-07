@@ -10,10 +10,10 @@ namespace webApi.Controllers
     {
         private readonly IPortfolioRepository _repo = repo;
 
-        [HttpGet]
-        public IEnumerable<Property> GetAll()
+        [HttpGet("files")]
+        public IEnumerable<Property> GetAllPropertyFiles()
         {
-            return _repo.GetAll();
+            return _repo.GetAllFiles();
         }
 
         // [HttpGet("{id}")]
