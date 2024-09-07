@@ -6,6 +6,7 @@ public class PropertyDetails
     [Key]
     public int PropertyDetailsId { get; set; }
     public required string PropertyName { get; set; }
+    public required string Address { get; set; }
     public decimal LandSizeInSquareMeters { get; set; }
     public decimal ConstructionSizeInSquareMeters { get; set; }
     public decimal NumberOfRooms { get; set; }
