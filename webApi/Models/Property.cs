@@ -18,6 +18,8 @@ public class Property
 
     public Status Status { get; set; }
 
+    public List<Event> Events { get; set; } = new List<Event>();
+
     public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
 
 }
@@ -28,4 +30,13 @@ public enum Status
     UnderOffer,
     Sold,
     Inactive
+}
+
+public class Event
+{
+
+    public required DateTime Date { get; set; }
+
+    public required string Description { get; set; }
+
 }
