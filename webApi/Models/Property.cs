@@ -1,31 +1,27 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 namespace webApi.Models;
 
 public class Property
 {
     [Key]
     public int PropertyId { get; private set; }
-
-    public int PropertyDetailsId { get; set; }
-
-    public int SellerId { get; set; }
-
-    public int PropertyLiasonAgentId { get; set; }
-
-    public int SalePrice { get; set; }
-
-    public double AgreedCommission { get; set; }
-
-    public Status Status { get; set; }
-
-    public List<Event> Events { get; set; } = new List<Event>();
-
     public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
 
-    public int BuyerId { get; set; }
+    public int SalePrice { get; set; }
+    public double AgreedCommission { get; set; }
+    public Status Status { get; set; }
 
-    public PropertyDetails? PropertyDetails { get; set; }
+    public int PropertyDetailsId { get; set; }
+    public int PropertyLiasonAgentId { get; set; }
+    public int SellerId { get; set; }
+    public int? BuyerId { get; set; }
 
+    public virtual PropertyDetails? PropertyDetails { get; set; }
+    public virtual Seller? Seller { get; set; }
+    public virtual Agent? PropertyLiasonAgent { get; set; }
+    public virtual Buyer? Buyer { get; set; }
+    public virtual ICollection<Event> Events { get; set; } = new List<Event>();
 }
 
 public enum Status

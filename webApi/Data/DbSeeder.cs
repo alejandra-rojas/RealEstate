@@ -54,19 +54,16 @@ public static class DbSeeder
                 {
                     FullName = "Oliver Smith",
                     PrimaryNumber = "735 555-1234",
-                    PropertyId = 1
                 },
                 new Buyer
                 {
                     FullName = "Amelia Johnson",
                     PrimaryNumber = "735 555-5678",
-                    PropertyId = 2
                 },
                 new Buyer
                 {
                     FullName = "William Brown",
                     PrimaryNumber = "735 555-9012",
-                    PropertyId = 3
                 }
             };
 
@@ -82,19 +79,16 @@ public static class DbSeeder
                 {
                     FullName = "Michael Harris",
                     PrimaryNumber = "735 555-3456",
-                    PropertyId = 1
                 },
                 new Seller
                 {
                     FullName = "Elizabeth King",
                     PrimaryNumber = "735 555-7890",
-                    PropertyId = 2
                 },
                 new Seller
                 {
                     FullName = "David Evans",
                     PrimaryNumber = "735 555-2345",
-                    PropertyId = 3
                 }
             };
 
@@ -275,7 +269,6 @@ public static class DbSeeder
                 SalePrice = 620000,
                 AgreedCommission = 2.5,
                 Status = Status.Active,
-                BuyerId = 1
             },
             new Property
             {
@@ -315,7 +308,6 @@ public static class DbSeeder
                 SalePrice = 910000,
                 AgreedCommission = 3.5,
                 Status = Status.Active,
-                BuyerId = 2
             },
             new Property
             {
@@ -335,7 +327,6 @@ public static class DbSeeder
                 SalePrice = 590000,
                 AgreedCommission = 4,
                 Status = Status.Active,
-                BuyerId = 1
             },
             new Property
             {
@@ -345,7 +336,6 @@ public static class DbSeeder
                 SalePrice = 680000,
                 AgreedCommission = 3.5,
                 Status = Status.Active,
-                BuyerId = 2
             },
             new Property
             {
@@ -447,5 +437,6 @@ public static class DbSeeder
             context.AddRange(events);
             context.SaveChanges();
         }
+
     }
 }
