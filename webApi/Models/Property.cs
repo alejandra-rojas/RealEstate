@@ -24,6 +24,8 @@ public class Property
 
     public int BuyerId { get; set; }
 
+    public PropertyDetails? PropertyDetails { get; set; }
+
 }
 
 public enum Status

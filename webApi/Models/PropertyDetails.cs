@@ -13,4 +13,5 @@ public class PropertyDetails
     public required string Description { get; set; }
     public string Photo { get; set; } = "https://placehold.co/300x200/d1d1d1/dedede?text=img";
     public int PropertyId { get; set; }
+    public Property? Property { get; set; }
 }

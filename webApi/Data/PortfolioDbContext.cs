@@ -15,9 +15,10 @@ public class PortfolioDbContext(DbContextOptions<PortfolioDbContext> options) : 
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<Property>()
-            .HasOne<PropertyDetails>()
-            .WithMany()
-            .HasForeignKey(p => p.PropertyDetailsId);
+            .HasOne(p => p.PropertyDetails)
+            .WithOne(pd => pd.Property)
+            .HasForeignKey<Property>(p => p.PropertyDetailsId);
+
 
         modelBuilder.Entity<Property>()
             .HasOne<Seller>()
