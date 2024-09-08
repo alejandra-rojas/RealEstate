@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { Asset } from "../../types/types";
+import { Asset, Status } from "../../types/types";
 import { createFileRoute } from "@tanstack/react-router";
 import { fetchPublicProperty } from "../../utils/api";
 
@@ -11,12 +11,13 @@ function Property() {
   const { id } = Route.useParams();
 
   const {
-    data: p,
+    data: property,
     error,
     isLoading,
+    isFetched,
   } = useQuery<Asset>({
     queryKey: ["property", id],
-    queryFn: fetchPublicProperty(id),
+    queryFn: () => fetchPublicProperty(id),
   });
 
   if (isLoading) {
@@ -28,11 +29,23 @@ function Property() {
   }
 
   return (
-    <div>
-      <h1>{p?.propertyName}</h1>
-      <p>{p?.description}</p>
-      <p>Price: ${p?.salePrice}</p>
-      <img src={p?.photo} alt={p?.propertyName} />
-    </div>
+    <>
+      {isFetched && (
+        <div>
+          <img src={property?.photo} alt={property?.propertyName} />
+          <h3>{property?.propertyName}</h3>
+          <p>{property?.address}</p>
+          <p>{property?.description}</p>
+          <p>Price: ${property?.salePrice}</p>
+          <p>Status: {Status[property!.status]}</p>
+          <p>Rooms: {property?.numberOfRooms}</p>
+          <p>Land Size: {property?.landSizeInSquareMeters} sqm</p>
+          <p>
+            Construction Size: {property?.constructionSizeInSquareMeters} sqm
+          </p>
+          <p>Created At: {property?.createdAt}</p>
+        </div>
+      )}
+    </>
   );
 }

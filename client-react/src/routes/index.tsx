@@ -41,7 +41,6 @@ function FilterablePortfolio({ portfolio }: { portfolio: Asset[] }) {
       {portfolio.map((property) => {
         return <PropertyCard key={property.propertyId} property={property} />;
       })}
-      å
     </>
   );
 }
@@ -50,16 +49,13 @@ function PropertyCard({ property }: { property: Asset }) {
   return (
     <Link to={`/properties/${property.propertyId}`}>
       <div>
+        <img src={property.photo} alt={property.propertyName} />
         <h3>{property.propertyName}</h3>
-        <p>{property.address}</p>
-        <p>{property.description}</p>
         <p>Price: ${property.salePrice}</p>
         <p>Status: {Status[property.status]}</p>
-        <img src={property.photo} alt={property.propertyName} />
         <p>Rooms: {property.numberOfRooms}</p>
         <p>Land Size: {property.landSizeInSquareMeters} sqm</p>
         <p>Construction Size: {property.constructionSizeInSquareMeters} sqm</p>
-        <p>Created At: {property.createdAt}</p>
       </div>
     </Link>
   );

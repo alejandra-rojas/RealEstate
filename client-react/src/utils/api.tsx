@@ -15,3 +15,17 @@ export async function fetchPublicPortfolio(): Promise<Asset[]> {
     throw error;
   }
 }
+
+export async function fetchPublicProperty(id: string): Promise<Asset> {
+  try {
+    const response = await fetch(`${apiUrl}/${id}`);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Fetch Error:", error);
+    throw error;
+  }
+}
