@@ -40,5 +40,14 @@ namespace webApi.Controllers
         }
 
 
+        [HttpPost]
+        public ActionResult<Property> Create(AddFileRequest request)
+        {
+            var newFile = _repo.Create(request);
+
+            return CreatedAtAction(nameof(GetOneFile), new { id = newFile!.PropertyId }, newFile);
+        }
+
+
     }
 }

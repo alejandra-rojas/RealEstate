@@ -9,8 +9,7 @@ public interface IPortfolioRepository
     IEnumerable<Property> GetAllFiles();
     PublicPropertyDto? GetOne(int id);
     Property? GetOneFile(int id);
-
-    // Property Create();
+    Property Create(AddFileRequest request);
 
     // Property Update();
 }

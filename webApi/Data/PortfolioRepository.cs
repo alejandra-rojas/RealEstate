@@ -84,4 +84,32 @@ public class PortfolioRepository(PortfolioDbContext context) : IPortfolioReposit
         return property is null ? null : property;
     }
 
+    public Property Create(AddFileRequest request)
+    {
+        var propertyDetails = new PropertyDetails
+        {
+            PropertyName = request.PropertyName,
+            Address = "123 Default Address St",
+            Description = "Lorem ipsum dolor sit",
+        };
+
+        var newProperty = new Property
+        {
+            SalePrice = request.SalePrice,
+            AgreedCommission = 3.5,
+            Status = Status.Inactive,
+            PropertyDetails = propertyDetails,
+            PropertyDetailsId = propertyDetails.PropertyDetailsId,
+            PropertyLiasonAgentId = request.PropertyLiasonAgentId,
+            SellerId = 2
+        };
+
+        _context.PropertyDetails.Add(propertyDetails);
+        _context.Properties.Add(newProperty);
+
+        _context.SaveChanges();
+
+        return newProperty;
+    }
+
 }
