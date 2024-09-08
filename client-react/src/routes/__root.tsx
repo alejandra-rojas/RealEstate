@@ -36,6 +36,11 @@ export const Route = createRootRoute({
                     Files
                   </Link>
                 </li>
+                <li>
+                  <Link to="/new" activeProps={activeProps}>
+                    New
+                  </Link>
+                </li>
               </ul>
             </SignedIn>
           </nav>
