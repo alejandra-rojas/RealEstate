@@ -4,6 +4,7 @@ import { PostFile } from "../types/types";
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { addFile } from "../utils/api";
+import { useNavigate } from "@tanstack/react-router";
 
 function NewForm() {
   const {
@@ -13,6 +14,7 @@ function NewForm() {
     reset,
   } = useForm<PostFile>();
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [selectedAgent, setSelectedAgent] = useState<string>("");
 
@@ -22,6 +24,9 @@ function NewForm() {
       queryClient.invalidateQueries({ queryKey: ["files"] });
       reset();
       setSelectedAgent("");
+      navigate({
+        to: "/files",
+      });
     } catch (error) {
       setSubmitError(`${error}`);
     }
