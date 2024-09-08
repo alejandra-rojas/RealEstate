@@ -18,8 +18,8 @@ export const Route = createRootRoute({
       <header className="flex justify-between">
         <div className="flex gap-10">
           <h1>RealEstate Mgmt</h1>
-          <SignedIn>
-            <nav>
+          <nav>
+            <SignedIn>
               <ul className="flex gap-4">
                 <li>
                   <Link to="/" activeProps={activeProps}>
@@ -31,9 +31,14 @@ export const Route = createRootRoute({
                     Dashboard
                   </Link>
                 </li>
+                <li>
+                  <Link to="/files" activeProps={activeProps}>
+                    Files
+                  </Link>
+                </li>
               </ul>
-            </nav>
-          </SignedIn>
+            </SignedIn>
+          </nav>
         </div>
         <div>
           <SignedOut>
