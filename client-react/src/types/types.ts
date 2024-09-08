@@ -1,4 +1,4 @@
-export interface Property {
+export interface Asset {
   createdAt: string;
   propertyId: number;
   salePrice: number;

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { createFileRoute } from "@tanstack/react-router";
-import { Property, Status } from "../types/types";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Asset, Status } from "../types/types";
 import { fetchPublicPortfolio } from "../utils/api";
 
 export const Route = createFileRoute("/")({
@@ -12,15 +12,12 @@ function Homepage() {
     error,
     data: portfolio,
     isFetched,
-  } = useQuery<Property[]>({
+  } = useQuery<Asset[]>({
     queryKey: ["portfolio"],
     queryFn: fetchPublicPortfolio,
   });
 
-  console.log(portfolio);
-
-  if (error)
-    return "An error has occurred while fetching salties: " + error.message;
+  if (error) return "An error has occurred while fetching : " + error.message;
 
   return (
     <>
@@ -38,55 +35,32 @@ function Homepage() {
   );
 }
 
-function FilterablePortfolio({ portfolio }: { portfolio: Property[] }) {
+function FilterablePortfolio({ portfolio }: { portfolio: Asset[] }) {
   return (
     <>
-      {portfolio.map((p) => {
-        return (
-          <PropertyCard
-            createdAt={p.createdAt}
-            salePrice={p.salePrice}
-            propertyId={p.propertyId}
-            status={p.status}
-            propertyName={p.propertyName}
-            address={p.address}
-            landSizeInSquareMeters={p.landSizeInSquareMeters}
-            constructionSizeInSquareMeters={p.constructionSizeInSquareMeters}
-            photo={p.photo}
-            numberOfRooms={p.numberOfRooms}
-            description={p.description}
-            key={p.propertyId}
-          />
-        );
+      {portfolio.map((property) => {
+        return <PropertyCard key={property.propertyId} property={property} />;
       })}
+      å
     </>
   );
 }
 
-function PropertyCard({
-  createdAt,
-  salePrice,
-  status,
-  propertyName,
-  address,
-  landSizeInSquareMeters,
-  constructionSizeInSquareMeters,
-  numberOfRooms,
-  description,
-  photo,
-}: Property) {
+function PropertyCard({ property }: { property: Asset }) {
   return (
-    <div>
-      <h3>{propertyName}</h3>
-      <p>{address}</p>
-      <p>{description}</p>
-      <p>Price: ${salePrice}</p>
-      <p>Status: {Status[status]}</p>
-      <img src={photo} alt={propertyName} />
-      <p>Rooms: {numberOfRooms}</p>
-      <p>Land Size: {landSizeInSquareMeters} sqm</p>
-      <p>Construction Size: {constructionSizeInSquareMeters} sqm</p>
-      <p>Created At: {createdAt}</p>
-    </div>
+    <Link to={`/properties/${property.propertyId}`}>
+      <div>
+        <h3>{property.propertyName}</h3>
+        <p>{property.address}</p>
+        <p>{property.description}</p>
+        <p>Price: ${property.salePrice}</p>
+        <p>Status: {Status[property.status]}</p>
+        <img src={property.photo} alt={property.propertyName} />
+        <p>Rooms: {property.numberOfRooms}</p>
+        <p>Land Size: {property.landSizeInSquareMeters} sqm</p>
+        <p>Construction Size: {property.constructionSizeInSquareMeters} sqm</p>
+        <p>Created At: {property.createdAt}</p>
+      </div>
+    </Link>
   );
 }

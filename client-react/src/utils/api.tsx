@@ -1,8 +1,8 @@
-import { Property } from "../types/types";
+import { Asset } from "../types/types";
 
 export const apiUrl = "http://localhost:5122/api/Properties";
 
-export async function fetchPublicPortfolio(): Promise<Property[]> {
+export async function fetchPublicPortfolio(): Promise<Asset[]> {
   try {
     const response = await fetch(apiUrl);
     if (!response.ok) {
