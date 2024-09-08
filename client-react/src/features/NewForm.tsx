@@ -5,6 +5,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { addFile } from "../utils/api";
 import { useNavigate } from "@tanstack/react-router";
+import { toast } from "react-toastify";
 
 function NewForm() {
   const {
@@ -26,6 +27,9 @@ function NewForm() {
       setSelectedAgent("");
       navigate({
         to: "/files",
+      });
+      toast.success("File added successfully!", {
+        position: "top-right",
       });
     } catch (error) {
       setSubmitError(`${error}`);

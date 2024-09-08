@@ -1,3 +1,6 @@
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
 import { Link, Outlet, createRootRoute } from "@tanstack/react-router";
 import {
   SignedIn,
@@ -60,6 +63,7 @@ export const Route = createRootRoute({
           </SignedIn>
         </div>
       </header>
+      <ToastContainer />
       <Outlet />
     </>
   ),
