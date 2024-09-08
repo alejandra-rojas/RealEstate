@@ -27,8 +27,8 @@ export const Route = createRootRoute({
                   </Link>
                 </li>
                 <li>
-                  <Link to="/properties" activeProps={activeProps}>
-                    Properties
+                  <Link to="/dashboard" activeProps={activeProps}>
+                    Dashboard
                   </Link>
                 </li>
               </ul>

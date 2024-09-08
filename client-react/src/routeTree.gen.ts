@@ -11,14 +11,14 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as PropertiesImport } from './routes/properties'
+import { Route as DashboardImport } from './routes/dashboard'
 import { Route as IndexImport } from './routes/index'
-import { Route as PropertyIdImport } from './routes/property/$id'
+import { Route as PropertiesIdImport } from './routes/properties/$id'
 
 // Create/Update Routes
 
-const PropertiesRoute = PropertiesImport.update({
-  path: '/properties',
+const DashboardRoute = DashboardImport.update({
+  path: '/dashboard',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -27,8 +27,8 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const PropertyIdRoute = PropertyIdImport.update({
-  path: '/property/$id',
+const PropertiesIdRoute = PropertiesIdImport.update({
+  path: '/properties/$id',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -43,18 +43,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/properties': {
-      id: '/properties'
-      path: '/properties'
-      fullPath: '/properties'
-      preLoaderRoute: typeof PropertiesImport
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardImport
       parentRoute: typeof rootRoute
     }
-    '/property/$id': {
-      id: '/property/$id'
-      path: '/property/$id'
-      fullPath: '/property/$id'
-      preLoaderRoute: typeof PropertyIdImport
+    '/properties/$id': {
+      id: '/properties/$id'
+      path: '/properties/$id'
+      fullPath: '/properties/$id'
+      preLoaderRoute: typeof PropertiesIdImport
       parentRoute: typeof rootRoute
     }
   }
@@ -62,11 +62,49 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren({
-  IndexRoute,
-  PropertiesRoute,
-  PropertyIdRoute,
-})
+export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/properties/$id': typeof PropertiesIdRoute
+}
+
+export interface FileRoutesByTo {
+  '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/properties/$id': typeof PropertiesIdRoute
+}
+
+export interface FileRoutesById {
+  __root__: typeof rootRoute
+  '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/properties/$id': typeof PropertiesIdRoute
+}
+
+export interface FileRouteTypes {
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/' | '/dashboard' | '/properties/$id'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/' | '/dashboard' | '/properties/$id'
+  id: '__root__' | '/' | '/dashboard' | '/properties/$id'
+  fileRoutesById: FileRoutesById
+}
+
+export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
+  DashboardRoute: typeof DashboardRoute
+  PropertiesIdRoute: typeof PropertiesIdRoute
+}
+
+const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
+  DashboardRoute: DashboardRoute,
+  PropertiesIdRoute: PropertiesIdRoute,
+}
+
+export const routeTree = rootRoute
+  ._addFileChildren(rootRouteChildren)
+  ._addFileTypes<FileRouteTypes>()
 
 /* prettier-ignore-end */
 
@@ -77,18 +115,18 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/properties",
-        "/property/$id"
+        "/dashboard",
+        "/properties/$id"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/properties": {
-      "filePath": "properties.tsx"
+    "/dashboard": {
+      "filePath": "dashboard.tsx"
     },
-    "/property/$id": {
-      "filePath": "property/$id.tsx"
+    "/properties/$id": {
+      "filePath": "properties/$id.tsx"
     }
   }
 }
