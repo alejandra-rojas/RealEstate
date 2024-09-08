@@ -74,3 +74,16 @@ export interface File {
   buyer: Buyer;
   events: Event[];
 }
+
+export interface PostFile {
+  propertyName: string;
+  salePrice: number;
+  propertyLiasonAgentId: number;
+  //   agreedCommission: string;
+  //   sellerId: number;
+  //   landSizeInSquareMeters: number;
+  //   constructionSizeInSquareMeters: number;
+  //   numberOfRooms: number;
+  //   description: string;
+  //   photo: string;
+}

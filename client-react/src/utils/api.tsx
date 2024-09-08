@@ -1,4 +1,4 @@
-import { Asset, File } from "../types/types";
+import { Asset, File, PostFile } from "../types/types";
 
 export const apiUrl = "http://localhost:5122/api/Properties";
 
@@ -55,5 +55,19 @@ export async function fetchFileById(id: string): Promise<File> {
   } catch (error) {
     console.error("Fetch Error:", error);
     throw error;
+  }
+}
+
+export async function addFile(file: PostFile): Promise<void> {
+  const response = await fetch(apiUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(file),
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to add File");
   }
 }
