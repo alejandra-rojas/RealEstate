@@ -49,13 +49,12 @@ namespace webApi.Controllers
         }
 
         [HttpPut("files/{id}/status")]
-        public ActionResult<Property> UpdateFileStatus(int id, int newStatus)
+        public ActionResult<Property> UpdateFileStatus(int id, StatusUpdateRequest request)
         {
-            return _repo.UpdateStatus(id, newStatus) is Property property
+            return _repo.UpdateStatus(id, request.Status) is Property property
                 ? Ok(property)
                 : NotFound($"Property with Id '{id}' was not found");
         }
-
 
     }
 }

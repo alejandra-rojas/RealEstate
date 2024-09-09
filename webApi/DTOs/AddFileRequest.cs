@@ -1,4 +1,4 @@
-using System.Globalization;
+namespace webApi.DTOs;
 
 public class AddFileRequest
 {
@@ -9,4 +9,9 @@ public class AddFileRequest
 
     public required int PropertyLiasonAgentId { get; set; }
 
+}
+
+public class StatusUpdateRequest
+{
+    public required int Status { get; set; }
 }
