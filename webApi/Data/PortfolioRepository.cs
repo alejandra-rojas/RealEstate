@@ -112,4 +112,16 @@ public class PortfolioRepository(PortfolioDbContext context) : IPortfolioReposit
         return newProperty;
     }
 
+    public Property UpdateStatus(int id, int newStatus)
+    {
+        var property = GetOneFile(id);
+
+        property!.Status = (Status)newStatus;
+
+        _context.Properties.Update(property);
+        _context.SaveChanges();
+
+        return property;
+
+    }
 }

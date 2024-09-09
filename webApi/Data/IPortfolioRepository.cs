@@ -10,6 +10,5 @@ public interface IPortfolioRepository
     PublicPropertyDto? GetOne(int id);
     Property? GetOneFile(int id);
     Property Create(AddFileRequest request);
-
-    // Property Update();
+    Property UpdateStatus(int id, int newStatus);
 }
