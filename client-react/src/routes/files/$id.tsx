@@ -7,6 +7,7 @@ import Seller from "../../features/File/Seller.ui";
 import Agent from "../../features/File/Agent.ui";
 import Buyer from "../../features/File/Buyer.ui";
 import Events from "../../features/File/Events.ui";
+import Notes from "../../features/File/Notes.ui";
 
 export const Route = createFileRoute("/files/$id")({
   component: SingleFile,
@@ -52,6 +53,8 @@ function SingleFile() {
           {file.events && file.events.length > 0 && (
             <Events events={file.events} />
           )}
+
+          <Notes notes={file.notes} />
         </div>
       )}
     </>
