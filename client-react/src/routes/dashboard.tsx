@@ -21,7 +21,7 @@ function Dashboard() {
     isFetched && (
       <section>
         <h2>Business Overview</h2>
-        <UpcomingEvents />
+        <UpcomingEvents files={files!} />
         <OngoingTransactions />
       </section>
     )
