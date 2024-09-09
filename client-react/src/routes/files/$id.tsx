@@ -2,7 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { File } from "../../types/types";
 import { useQuery } from "@tanstack/react-query";
 import { fetchFileById } from "../../utils/api";
-import StatusEdit from "../../features/SingleFile/StatusEdit";
+import StatusEdit from "../../features/File/StatusEdit";
+import Seller from "../../features/File/Seller.ui";
+import Agent from "../../features/File/Agent.ui";
+import Buyer from "../../features/File/Buyer.ui";
+import Events from "../../features/File/Events.ui";
 
 export const Route = createFileRoute("/files/$id")({
   component: SingleFile,
@@ -29,46 +33,24 @@ function SingleFile() {
     return <p>An error occurred while fetching the property details.</p>;
   }
 
+  console.log(file);
+
   return (
     <>
       {isFetched && file && (
         <div>
-          <h3>{file!.propertyDetails.propertyName}</h3>
+          <h3>{file.propertyDetails.propertyName}</h3>
           <StatusEdit id={id} status={file.status} />
           <p>Price: ${file!.salePrice}</p>
           <p>Commision: {file!.agreedCommission}%</p>
-          <p>Agent details</p>
-          <img
-            src={file!.propertyLiasonAgent.photo}
-            alt={file!.propertyLiasonAgent.name}
-            className="square h-10"
-          />
-          <p>{file!.propertyLiasonAgent.name}</p>
-          <p>{file!.propertyLiasonAgent.email}</p>
-          <p>Seller details</p>
-          <p>{file!.seller.fullName}</p>
-          <p>{file!.seller.primaryNumber}</p>
 
-          {file!.buyer && (
-            <>
-              <p>Buyer details</p>
-              <p>{file!.buyer.fullName}</p>
-              <p>{file!.buyer.primaryNumber}</p>
-            </>
-          )}
+          <Agent agent={file.propertyLiasonAgent} />
+          <Seller seller={file.seller} />
 
-          {file!.events && file!.events.length > 0 && (
-            <>
-              <p>Events</p>
-              <ul>
-                {file!.events.map((event, index) => (
-                  <li key={index}>
-                    <p>Date: {new Date(event.date).toLocaleString()}</p>
-                    <p>Details: {event.description}</p>
-                  </li>
-                ))}
-              </ul>
-            </>
+          {file!.buyer && <Buyer buyer={file.buyer} />}
+
+          {file.events && file.events.length > 0 && (
+            <Events events={file.events} />
           )}
         </div>
       )}
