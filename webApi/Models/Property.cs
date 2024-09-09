@@ -22,6 +22,7 @@ public class Property
     public virtual Agent? PropertyLiasonAgent { get; set; }
     public virtual Buyer? Buyer { get; set; }
     public virtual ICollection<Event> Events { get; set; } = new List<Event>();
+    public virtual ICollection<Note> Notes { get; set; } = new List<Note>();
 }
 
 public enum Status

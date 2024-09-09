@@ -45,6 +45,7 @@ public class PortfolioRepository(PortfolioDbContext context) : IPortfolioReposit
             .Include(p => p.PropertyLiasonAgent)
             .Include(p => p.Buyer)
             .Include(p => p.Events)
+            .Include(p => p.Notes)
             .AsEnumerable();
     }
 
@@ -79,6 +80,7 @@ public class PortfolioRepository(PortfolioDbContext context) : IPortfolioReposit
             .Include(p => p.PropertyLiasonAgent)
             .Include(p => p.Buyer)
             .Include(p => p.Events)
+            .Include(p => p.Notes)
             .FirstOrDefault(p => p.PropertyId == id);
 
         return property is null ? null : property;

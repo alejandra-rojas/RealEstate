@@ -9,6 +9,7 @@ public class PortfolioDbContext(DbContextOptions<PortfolioDbContext> options) : 
     public DbSet<Buyer> Buyers { get; set; }
     public DbSet<PropertyDetails> PropertyDetails { get; set; }
     public DbSet<Event> Events { get; set; }
+    public DbSet<Note> Notes { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -36,6 +37,11 @@ public class PortfolioDbContext(DbContextOptions<PortfolioDbContext> options) : 
 
         modelBuilder.Entity<Property>()
             .HasMany(p => p.Events)
+            .WithOne(e => e.Property)
+            .HasForeignKey(e => e.PropertyId);
+
+        modelBuilder.Entity<Property>()
+            .HasMany(p => p.Notes)
             .WithOne(e => e.Property)
             .HasForeignKey(e => e.PropertyId);
     }
