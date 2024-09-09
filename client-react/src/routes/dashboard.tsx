@@ -9,6 +9,7 @@ import Header from "../features/Dashboard/Header";
 import TopSellers from "../features/Dashboard/TopSellers";
 import AddAgentButton from "../features/Dashboard/AddAgentButton";
 import AddPropertyButton from "../features/Dashboard/AddPropertyButton";
+import RecentNotes from "../features/Dashboard/RecentNotes";
 
 export const Route = createFileRoute("/dashboard")({
   component: Dashboard,
@@ -23,15 +24,17 @@ function Dashboard() {
   console.log(files);
 
   return (
-    isFetched && (
+    isFetched &&
+    files && (
       <section>
         <Header />
-        <BusinessPerformance files={files!} />
-        <UpcomingEvents files={files!} />
-        <OngoingTransactions files={files!} />
-        <TopSellers files={files!} />
+        <BusinessPerformance files={files} />
+        <UpcomingEvents files={files} />
+        <OngoingTransactions files={files} />
+        <TopSellers files={files} />
         <AddAgentButton />
         <AddPropertyButton />
+        <RecentNotes files={files} />
       </section>
     )
   );
