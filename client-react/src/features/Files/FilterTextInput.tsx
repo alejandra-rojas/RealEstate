@@ -6,8 +6,8 @@ function FilterTextInput({
   onFilterTextChange: React.Dispatch<React.SetStateAction<string>>;
 }) {
   return (
-    <section className="bg-white shadow">
-      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 flex justify-between">
+    <section>
+      <div className="flex justify-between">
         <div className="relative">
           <label htmlFor="Search" className="sr-only">
             Search

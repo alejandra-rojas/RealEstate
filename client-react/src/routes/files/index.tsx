@@ -43,7 +43,7 @@ function Files() {
     <>
       {isFetched && (
         <section>
-          <div>
+          <div className="max-w-7xl px-4 py-6 flex justify-between items-end">
             <FilterTextInput
               filterText={filterText}
               onFilterTextChange={setFilterText}
