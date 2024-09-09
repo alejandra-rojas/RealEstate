@@ -22,8 +22,6 @@ function Files() {
 
   const [filterText, setFilterText] = useState<string>("");
 
-  console.log(filterText);
-
   if (error) return "An error has occurred while fetching : " + error.message;
 
   const sortByCreationDate = files
@@ -33,6 +31,20 @@ function Files() {
       )
     : [];
 
+  const filteredFiles = sortByCreationDate.filter((file) => {
+    const searchText = filterText.toLowerCase();
+
+    return (
+      file.propertyDetails.propertyName.toLowerCase().includes(searchText) ||
+      file.propertyDetails.address.toLowerCase().includes(searchText) ||
+      file.propertyDetails.description.toLowerCase().includes(searchText) ||
+      file.seller.fullName.toLowerCase().includes(searchText) ||
+      file.propertyLiasonAgent.name.toLowerCase().includes(searchText) ||
+      String(file.salePrice).toLowerCase().includes(searchText) ||
+      (file.buyer && file.buyer.fullName.toLowerCase().includes(searchText))
+    );
+  });
+
   return (
     <>
       {isFetched && (
@@ -41,7 +53,7 @@ function Files() {
             filterText={filterText}
             onFilterTextChange={setFilterText}
           />
-          <FilteredFiles files={sortByCreationDate ?? []} />
+          <FilteredFiles files={filteredFiles ?? []} />
         </div>
       )}
     </>
