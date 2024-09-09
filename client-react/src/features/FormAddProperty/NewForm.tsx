@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import { Field, FieldSet } from "./form-components.ui";
-import { PostFile } from "../types/types";
+import { PostFile } from "../../types/types";
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { addFile } from "../utils/api";
+import { addFile } from "../../utils/api";
 import { useNavigate } from "@tanstack/react-router";
 import { toast } from "react-toastify";
 
