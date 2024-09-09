@@ -25,7 +25,7 @@ function Dashboard() {
         <Header />
         <BusinessPerformance />
         <UpcomingEvents files={files!} />
-        <OngoingTransactions />
+        <OngoingTransactions files={files!} />
       </section>
     )
   );
