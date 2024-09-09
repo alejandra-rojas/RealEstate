@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import NewForm from "../features/NewForm";
+import NewForm from "../features/FormAddProperty/NewForm";
 
 export const Route = createFileRoute("/new")({
   component: AddProperty,
