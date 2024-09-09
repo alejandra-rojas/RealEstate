@@ -18,41 +18,46 @@ const activeProps = {
 export const Route = createRootRoute({
   component: () => (
     <>
-      <header className="flex justify-between">
-        <div className="flex gap-10">
-          <h1>RealEstate Mgmt</h1>
-          <nav>
-            <SignedIn>
+      <header>
+        <div className="flex justify-between">
+          <div className="flex gap-10">
+            <h1>RealEstate Mgmt</h1>
+            <nav>
               <ul className="flex gap-4">
                 <li>
                   <Link to="/" activeProps={activeProps}>
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/dashboard" activeProps={activeProps}>
-                    Dashboard
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/files" activeProps={activeProps}>
-                    Files
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/new" activeProps={activeProps}>
-                    New
+                    Homepage
                   </Link>
                 </li>
               </ul>
-            </SignedIn>
-          </nav>
+            </nav>
+          </div>
+          <div>
+            <SignedOut>
+              <SignInButton forceRedirectUrl="/dashboard" />
+            </SignedOut>
+          </div>
         </div>
-        <div>
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
+        <SignedIn>
+          <nav id="admin-nav" className="flex justify-between">
+            <ul className="flex gap-4">
+              <li>
+                <Link to="/dashboard" activeProps={activeProps}>
+                  Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link to="/files" activeProps={activeProps}>
+                  Files
+                </Link>
+              </li>
+              <li>
+                <Link to="/new" activeProps={activeProps}>
+                  New
+                </Link>
+              </li>
+            </ul>
+
             <UserButton
               appearance={{
                 elements: {
@@ -60,8 +65,8 @@ export const Route = createRootRoute({
                 },
               }}
             />
-          </SignedIn>
-        </div>
+          </nav>
+        </SignedIn>
       </header>
       <ToastContainer />
       <Outlet />
