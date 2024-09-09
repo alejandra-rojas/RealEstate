@@ -1,7 +1,15 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { File, Status } from "../../types/types";
+import { createFileRoute } from "@tanstack/react-router";
+import { File } from "../../types/types";
 import { useQuery } from "@tanstack/react-query";
 import { fetchFiles } from "../../utils/api";
+import FilterTextInput from "../../features/Files/FilterTextInput";
+import FilteredFiles from "../../features/Files/FilteredFiles";
+import { useState } from "react";
+import {
+  filterFiles,
+  sortByCreationDate,
+} from "../../features/Files/utils/filterUtils";
+import FilterPriceRange from "../../features/Files/FilterPriceRange";
 
 export const Route = createFileRoute("/files/")({
   component: Files,
@@ -17,50 +25,39 @@ function Files() {
     queryFn: fetchFiles,
   });
 
-  console.log(files);
+  const [filterText, setFilterText] = useState<string>("");
+  const [minPrice, setMinPrice] = useState<number | null>(0);
+  const [maxPrice, setMaxPrice] = useState<number | null>(20000000);
 
   if (error) return "An error has occurred while fetching : " + error.message;
 
-  const sortByCreationDate = files
-    ? [...files].sort(
-        (a, b) =>
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-      )
-    : [];
+  const sortedFiles = files ? sortByCreationDate(files) : [];
+  const filteredFiles = filterFiles(
+    sortedFiles,
+    filterText,
+    minPrice,
+    maxPrice
+  );
 
   return (
     <>
       {isFetched && (
-        <div>
-          <FilterableFiles files={sortByCreationDate ?? []} />
-        </div>
+        <section>
+          <div className="max-w-7xl px-4 py-6 flex justify-between items-end">
+            <FilterTextInput
+              filterText={filterText}
+              onFilterTextChange={setFilterText}
+            />
+            <FilterPriceRange
+              minPrice={minPrice}
+              maxPrice={maxPrice}
+              onMinPriceChange={setMinPrice}
+              onMaxPriceChange={setMaxPrice}
+            />
+          </div>
+          <FilteredFiles files={filteredFiles ?? []} />
+        </section>
       )}
     </>
-  );
-}
-
-function FilterableFiles({ files }: { files: File[] }) {
-  return (
-    <>
-      <div className="flex flex-col gap-4 border">
-        {files.map((file) => {
-          return <FileCard key={file.propertyId} file={file} />;
-        })}
-      </div>
-    </>
-  );
-}
-
-function FileCard({ file }: { file: File }) {
-  return (
-    <Link to={`/files/${file.propertyId}`}>
-      <div>
-        <h3>{file.propertyDetails.propertyName}</h3>
-        <p>Price: ${file.salePrice}</p>
-        <p>Status: {Status[file.status]}</p>
-        <p>Seller: {file.seller.fullName}</p>
-        <p>Agent: {file.propertyLiasonAgent.name}</p>
-      </div>
-    </Link>
   );
 }
