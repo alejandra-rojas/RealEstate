@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { updateStatus } from "../utils/api";
-import { Status } from "../types/types";
+import { updateStatus } from "../../utils/api";
+import { Status } from "../../types/types";
 
 interface StatusEditProps {
   id: string;

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { File } from "../../types/types";
 import { useQuery } from "@tanstack/react-query";
 import { fetchFileById } from "../../utils/api";
-import StatusEdit from "../../features/StatusEdit";
+import StatusEdit from "../../features/SingleFile/StatusEdit";
 
 export const Route = createFileRoute("/files/$id")({
   component: SingleFile,
