@@ -6,6 +6,7 @@ import UpcomingEvents from "../features/Dashboard/UpcomingEvents";
 import OngoingTransactions from "../features/Dashboard/OngoingTransactions";
 import BusinessPerformance from "../features/Dashboard/BusinessPerformance";
 import Header from "../features/Dashboard/Header";
+import TopSellers from "../features/Dashboard/TopSellers";
 
 export const Route = createFileRoute("/dashboard")({
   component: Dashboard,
@@ -26,6 +27,7 @@ function Dashboard() {
         <BusinessPerformance files={files!} />
         <UpcomingEvents files={files!} />
         <OngoingTransactions files={files!} />
+        <TopSellers files={files!} />
       </section>
     )
   );
