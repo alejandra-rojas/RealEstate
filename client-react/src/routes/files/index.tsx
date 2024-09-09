@@ -5,6 +5,10 @@ import { fetchFiles } from "../../utils/api";
 import FilterBar from "../../features/Files/FilterBar";
 import FilteredFiles from "../../features/Files/FilteredFiles";
 import { useState } from "react";
+import {
+  filterFilesByText,
+  sortByCreationDate,
+} from "../../features/Files/utils/filterUtils";
 
 export const Route = createFileRoute("/files/")({
   component: Files,
@@ -24,26 +28,8 @@ function Files() {
 
   if (error) return "An error has occurred while fetching : " + error.message;
 
-  const sortByCreationDate = files
-    ? [...files].sort(
-        (a, b) =>
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-      )
-    : [];
-
-  const filteredFiles = sortByCreationDate.filter((file) => {
-    const searchText = filterText.toLowerCase();
-
-    return (
-      file.propertyDetails.propertyName.toLowerCase().includes(searchText) ||
-      file.propertyDetails.address.toLowerCase().includes(searchText) ||
-      file.propertyDetails.description.toLowerCase().includes(searchText) ||
-      file.seller.fullName.toLowerCase().includes(searchText) ||
-      file.propertyLiasonAgent.name.toLowerCase().includes(searchText) ||
-      String(file.salePrice).toLowerCase().includes(searchText) ||
-      (file.buyer && file.buyer.fullName.toLowerCase().includes(searchText))
-    );
-  });
+  const sortedFiles = files ? sortByCreationDate(files) : [];
+  const filteredFiles = filterFilesByText(sortedFiles, filterText);
 
   return (
     <>
