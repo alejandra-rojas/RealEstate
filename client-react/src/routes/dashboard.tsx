@@ -4,6 +4,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { fetchFiles } from "../utils/api";
 import UpcomingEvents from "../features/Dashboard/UpcomingEvents";
 import OngoingTransactions from "../features/Dashboard/OngoingTransactions";
+import BusinessPerformance from "../features/Dashboard/BusinessPerformance";
+import Header from "../features/Dashboard/Header";
 
 export const Route = createFileRoute("/dashboard")({
   component: Dashboard,
@@ -20,7 +22,8 @@ function Dashboard() {
   return (
     isFetched && (
       <section>
-        <h2>Business Overview</h2>
+        <Header />
+        <BusinessPerformance />
         <UpcomingEvents files={files!} />
         <OngoingTransactions />
       </section>
