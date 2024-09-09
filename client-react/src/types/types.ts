@@ -73,6 +73,15 @@ export interface File {
   propertyLiasonAgent: PropertyLiasonAgent;
   buyer: Buyer;
   events: Event[];
+  notes: Note[];
+}
+
+export interface Note {
+  noteId: number;
+  createdAt: string;
+  description: string;
+  propertyId: number;
+  author: string;
 }
 
 export interface PostFile {
