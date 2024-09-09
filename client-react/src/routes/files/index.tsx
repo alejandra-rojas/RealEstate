@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchFiles } from "../../utils/api";
 import FilterBar from "../../features/Files/FilterBar";
 import FilteredFiles from "../../features/Files/FilteredFiles";
+import { useState } from "react";
 
 export const Route = createFileRoute("/files/")({
   component: Files,
@@ -19,7 +20,9 @@ function Files() {
     queryFn: fetchFiles,
   });
 
-  console.log(files);
+  const [filterText, setFilterText] = useState<string>("");
+
+  console.log(filterText);
 
   if (error) return "An error has occurred while fetching : " + error.message;
 
@@ -34,7 +37,10 @@ function Files() {
     <>
       {isFetched && (
         <div>
-          <FilterBar />
+          <FilterBar
+            filterText={filterText}
+            onFilterTextChange={setFilterText}
+          />
           <FilteredFiles files={sortByCreationDate ?? []} />
         </div>
       )}
