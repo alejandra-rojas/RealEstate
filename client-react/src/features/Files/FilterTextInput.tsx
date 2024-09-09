@@ -1,4 +1,4 @@
-function FilterBar({
+function FilterTextInput({
   filterText,
   onFilterTextChange,
 }: {
@@ -48,4 +48,4 @@ function FilterBar({
   );
 }
 
-export default FilterBar;
+export default FilterTextInput;

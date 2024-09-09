@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { File } from "../../types/types";
 import { useQuery } from "@tanstack/react-query";
 import { fetchFiles } from "../../utils/api";
-import FilterBar from "../../features/Files/FilterBar";
+import FilterTextInput from "../../features/Files/FilterTextInput";
 import FilteredFiles from "../../features/Files/FilteredFiles";
 import { useState } from "react";
 import {
@@ -35,7 +35,7 @@ function Files() {
     <>
       {isFetched && (
         <div>
-          <FilterBar
+          <FilterTextInput
             filterText={filterText}
             onFilterTextChange={setFilterText}
           />
