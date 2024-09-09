@@ -21,11 +21,18 @@ function Files() {
 
   if (error) return "An error has occurred while fetching : " + error.message;
 
+  const sortByCreationDate = files
+    ? [...files].sort(
+        (a, b) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      )
+    : [];
+
   return (
     <>
       {isFetched && (
         <div>
-          <FilterableFiles files={files ?? []} />
+          <FilterableFiles files={sortByCreationDate ?? []} />
         </div>
       )}
     </>
@@ -52,7 +59,7 @@ function FileCard({ file }: { file: File }) {
         <p>Price: ${file.salePrice}</p>
         <p>Status: {Status[file.status]}</p>
         <p>Seller: {file.seller.fullName}</p>
-        <p>Agent: {file.propertyLiasonAgent.name} sqm</p>
+        <p>Agent: {file.propertyLiasonAgent.name}</p>
       </div>
     </Link>
   );
