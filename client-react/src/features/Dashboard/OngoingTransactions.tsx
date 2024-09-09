@@ -2,7 +2,7 @@ import { File } from "../../types/types";
 import { Link } from "@tanstack/react-router";
 
 function OngoingTransactions({ files }: { files: File[] }) {
-  const statusUnderOffer = 2;
+  const statusUnderOffer = 1;
   const underOfferFiles = files.filter(
     (file) => file.status === statusUnderOffer
   );
