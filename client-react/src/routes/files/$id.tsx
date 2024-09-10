@@ -41,11 +41,12 @@ function SingleFile() {
         <section
           className="bg-[#eeeeee] border border-gray-200 py-6 px-6"
           style={{
-            clipPath: "polygon(0 0, 98% 0, 100% 2%, 100% 100%, 0 100%)",
+            clipPath: "polygon(0 0, 100% 0, 100% 0%, 100% 100%, 0 100%)",
           }}
         >
-          <div className="font-rmono uppercase text-sm text-almostblack flex justify-between pb-1 mb-4 border-b border-almostblack">
+          <div className="font-rmono uppercase text-xs text-almostblack flex justify-between pb-1 mb-6 border-b border-almostblack">
             <p>/ PROPERTY ID: 102{file.propertyId}</p>
+            <p>{new Date(file.createdAt).toLocaleString()}</p>
           </div>
 
           <div className="flex justify-between pb-4 mb-4 border-b border-gray-400">
