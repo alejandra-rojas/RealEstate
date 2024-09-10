@@ -96,3 +96,25 @@ export async function updateStatus(
     throw error;
   }
 }
+
+export async function addNote(id: string, newNote: string): Promise<File> {
+  try {
+    const response = await fetch(`${apiUrl}/files/${id}/notes`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ description: newNote }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to add note");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error updating status:", error);
+    throw error;
+  }
+}

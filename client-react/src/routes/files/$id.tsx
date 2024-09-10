@@ -54,7 +54,7 @@ function SingleFile() {
             <Events events={file.events} />
           )}
 
-          <Notes notes={file.notes} />
+          <Notes notes={file.notes} id={id} />
         </div>
       )}
     </>
