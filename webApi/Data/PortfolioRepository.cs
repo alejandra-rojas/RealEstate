@@ -15,6 +15,7 @@ public class PortfolioRepository(PortfolioDbContext context) : IPortfolioReposit
     {
         var properties = _properties
             .Include(p => p.PropertyDetails)
+            .Where(p => p.Status != Status.Inactive)
             .AsEnumerable();
 
         var propertyDtos = properties.Select(p => new PublicPropertyDto
