@@ -19,26 +19,26 @@ function FilterPriceRange({
     onMaxPriceChange(e.target.value ? Number(e.target.value) : null);
   };
   return (
-    <div className="flex gap-4 text-gray-600">
-      <div>
-        <label className="block text-sm font-medium">Minimum Price</label>
+    <div className="flex gap-1 text-gray-600 font-rmono uppercase text-xs ">
+      <div className="flex flex-col p-1 w-1/2">
+        <label className="block">Min Price</label>
         <input
           type="number"
           value={minPrice ?? ""}
           onChange={handleMinPriceChange}
           placeholder="Min Price"
-          className="rounded-md border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm"
+          className="border-gray-200 rounded-sm py-2.5 sm:text-sm"
         />
       </div>
 
-      <div>
-        <label className="block text-sm font-medium">Maximum Price</label>
+      <div className="flex flex-col p-1 w-1/2">
+        <label className="block">Max Price</label>
         <input
           type="number"
           value={maxPrice ?? ""}
           onChange={handleMaxPriceChange}
           placeholder="Max Price"
-          className="rounded-md border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm"
+          className=" border-gray-200 rounded-sm py-2.5 sm:text-sm"
         />
       </div>
     </div>
