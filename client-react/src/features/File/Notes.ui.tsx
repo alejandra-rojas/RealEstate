@@ -2,6 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { Note } from "../../types/types";
 import { addNote } from "../../utils/api";
+import { toast } from "react-toastify";
 
 function Notes({ notes, id }: { notes: Note[]; id: string }) {
   const [isAddingNote, setIsAddingNote] = useState(false);
@@ -58,6 +59,10 @@ function AddNewNote({ onClose, id }: { onClose: () => void; id: string }) {
         queryKey: ["property", id],
       });
       onClose();
+      toast.success("Note added to file", {
+        position: "top-right",
+        theme: "dark",
+      });
     },
   });
 

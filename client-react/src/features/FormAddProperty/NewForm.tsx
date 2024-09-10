@@ -30,6 +30,7 @@ function NewForm() {
       });
       toast.success("File added successfully!", {
         position: "top-right",
+        theme: "dark",
       });
     } catch (error) {
       setSubmitError(`${error}`);

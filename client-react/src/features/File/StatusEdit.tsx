@@ -2,6 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { updateStatus } from "../../utils/api";
 import { Status } from "../../types/types";
+import { toast } from "react-toastify";
 
 interface StatusEditProps {
   id: string;
@@ -18,6 +19,10 @@ export default function StatusEdit({ id, status }: StatusEditProps) {
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ["property", id],
+      });
+      toast.success("Status has been updated", {
+        position: "top-right",
+        theme: "dark",
       });
     },
   });
