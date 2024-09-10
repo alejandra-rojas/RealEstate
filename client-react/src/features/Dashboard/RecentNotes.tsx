@@ -24,27 +24,31 @@ function RecentNotes({ files }: { files: File[] }) {
   const latestNotes = sortedNotes.slice(0, 5);
 
   return (
-    <div>
-      <h4>Latest notes added to files</h4>
-      <ul>
+    <section className="bg-[#e7e7e7] py-4 px-6 rounded-xl flex flex-col gap-4 ">
+      <h2 className="font-rmono text-xl border-b border-[#CFCFCF]">
+        Latest notes on files
+      </h2>
+      <ul className="flex flex-col gap-3 ">
         {latestNotes.length > 0 ? (
           latestNotes.map((note) => (
-            <li key={note.noteId}>
-              <p>
-                Property:{" "}
+            <li key={note.noteId} className="pb-2 border-b border-[#CFCFCF]">
+              <p className="capitalize text-sm text-black">
+                {note.description}
+              </p>
+              <p className="font-rmono text-xs text-gray-800">
                 <Link to={`/files/${note.propertyId}`}>
                   {note.propertyName}{" "}
                 </Link>
-                - {new Date(note.createdAt).toLocaleString()} by {note.author}
+                file - {new Date(note.createdAt).toLocaleString()}{" "}
+                {note.author.split(" ")[0]}
               </p>
-              <p>Note: {note.description}</p>
             </li>
           ))
         ) : (
           <p>No recent notes available</p>
         )}
       </ul>
-    </div>
+    </section>
   );
 }
 

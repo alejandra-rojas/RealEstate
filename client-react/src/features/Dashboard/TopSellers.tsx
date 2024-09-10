@@ -4,19 +4,19 @@ function TopSellers({ files }: { files: File[] }) {
   const topSellers = processAgentCommissions(files);
 
   return (
-    <div>
-      <h2>Top Sellers</h2>
+    <div className="font-rmono flex flex-col gap-4 w-1/2">
+      <h2 className="text-xl border-b border-[#CFCFCF]">Top Agents</h2>
       {topSellers.length > 0 ? (
-        <ul>
+        <ul className="flex flex-col gap-4">
           {topSellers.map((agent) => (
             <li key={agent.agentId}>
-              <div>
+              <div className="flex items-center gap-3">
                 <img
                   src={agent.agentPhoto}
                   alt={agent.agentName}
-                  className="w-10 aspect-square"
+                  className="w-8 aspect-square"
                 />
-                <strong>{agent.agentName}</strong>: $
+                <strong>{agent.agentName}:</strong>$
                 {agent.totalCommission.toLocaleString()}
               </div>
             </li>

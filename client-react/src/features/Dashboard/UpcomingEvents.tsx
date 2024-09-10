@@ -13,17 +13,27 @@ function UpcomingEvents({ files }: { files: File[] }) {
 
   console.log(upcomingEvents);
   return (
-    <div>
-      <h2>Upcoming Events</h2>
-      <ul>
+    <div className="flex flex-col gap-4 ">
+      <h2 className="font-rmono  text-lg text-[#999999] border-b border-[#CFCFCF]">
+        Your upcoming appointments
+      </h2>
+      <ul className="flex flex-col gap-1">
         {upcomingEvents.length > 0 ? (
           upcomingEvents.map((event) => (
             <li key={event.eventId}>
-              <strong>{new Date(event.date).toLocaleDateString()}</strong>{" "}
-              {event.description} for{" "}
-              <Link to={`/files/${event.propertyId}`}>
-                <em>{event.propertyName}</em>
-              </Link>
+              <strong>
+                {new Date(event.date).toLocaleDateString(undefined, {
+                  weekday: "short",
+                  month: "short",
+                  day: "numeric",
+                })}
+              </strong>
+              <span> {event.description}.</span>{" "}
+              <span className="text-sm">
+                <Link to={`/files/${event.propertyId}`}>
+                  <span>Property:</span> <em>{event.propertyName}</em>
+                </Link>
+              </span>
             </li>
           ))
         ) : (

@@ -8,19 +8,23 @@ function BusinessPerformance({ files }: { files: File[] }) {
   }, 0);
 
   return (
-    <div>
-      Add year dropdown
-      <div>
-        <h3>Completed Transactions</h3>
-        <p>{soldProperties.length}</p>
-      </div>
-      <div>
-        <h3>Booked properties</h3>
-        <p>{files.length}</p>
-      </div>
-      <div>
-        <h3>Commission Earned</h3>
-        <p>${totalCommissionEarned.toLocaleString()}</p>
+    <div className="font-rmono flex flex-col gap-4 w-1/2">
+      <h2 className="text-xl border-b border-[#CFCFCF]">Business Overview</h2>
+      <div className="flex flex-col gap-2">
+        <div className="flex gap-2 items-end">
+          <p className="text-3xl leading-none">
+            ${totalCommissionEarned.toLocaleString()}
+          </p>
+          <h3 className="">Commission/year</h3>
+        </div>
+        <div className="flex gap-2 items-end">
+          <p className="text-3xl leading-none">{soldProperties.length}</p>
+          <h3 className="">Completed Transactions</h3>
+        </div>
+        <div className="flex gap-2 items-end">
+          <p className="text-3xl leading-none">{files.length}</p>
+          <h3 className="">Booked Properties</h3>
+        </div>
       </div>
     </div>
   );

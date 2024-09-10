@@ -18,7 +18,7 @@ const activeProps = {
 export const Route = createRootRoute({
   component: () => (
     <>
-      <header className="pb-4">
+      <header className="pb-6">
         <div className="flex justify-between">
           <div className="flex pl-2 gap-10 items-start">
             <div className="flex flex-col font-rmono text-almostblack cursor-default">

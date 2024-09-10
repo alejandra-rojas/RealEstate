@@ -5,11 +5,9 @@ import { fetchFiles } from "../utils/api";
 import UpcomingEvents from "../features/Dashboard/UpcomingEvents";
 import OngoingTransactions from "../features/Dashboard/OngoingTransactions";
 import BusinessPerformance from "../features/Dashboard/BusinessPerformance";
-import Header from "../features/Dashboard/Header";
 import TopSellers from "../features/Dashboard/TopSellers";
-import AddAgentButton from "../features/Dashboard/AddAgentButton";
-import AddPropertyButton from "../features/Dashboard/AddPropertyButton";
 import RecentNotes from "../features/Dashboard/RecentNotes";
+import Buttons from "../features/Dashboard/Buttons";
 
 export const Route = createFileRoute("/dashboard")({
   component: Dashboard,
@@ -26,16 +24,21 @@ function Dashboard() {
   return (
     isFetched &&
     files && (
-      <section>
-        <Header />
-        <BusinessPerformance files={files} />
-        <UpcomingEvents files={files} />
-        <OngoingTransactions files={files} />
-        <TopSellers files={files} />
-        <AddAgentButton />
-        <AddPropertyButton />
-        <RecentNotes files={files} />
-      </section>
+      <div className="flex flex-col gap-3 mt-4">
+        <Buttons />
+        <section className="bg-gray-100 py-4 px-6 rounded-md border border-gray-300">
+          <UpcomingEvents files={files} />
+        </section>
+
+        <div className="flex gap-3">
+          <OngoingTransactions files={files} />
+          <RecentNotes files={files} />
+        </div>
+        <section className="bg-[#e7e7e7] py-8 px-9 rounded-xl flex gap-8">
+          <BusinessPerformance files={files} />
+          <TopSellers files={files} />
+        </section>
+      </div>
     )
   );
 }
