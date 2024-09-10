@@ -23,16 +23,22 @@ function Notes({ notes, id }: { notes: Note[]; id: string }) {
         <p>No notes available for this property.</p>
       ) : (
         <ul>
-          {notes.map((note) => (
-            <li key={note.noteId}>
-              <p>
-                <strong>Note:</strong> {note.description}
-              </p>
-              <p>
-                {note.author} - {new Date(note.createdAt).toLocaleString()}
-              </p>
-            </li>
-          ))}
+          {notes
+            .sort(
+              (a, b) =>
+                new Date(b.createdAt).getTime() -
+                new Date(a.createdAt).getTime()
+            )
+            .map((note) => (
+              <li key={note.noteId}>
+                <p>
+                  <strong>Note:</strong> {note.description}
+                </p>
+                <p>
+                  {note.author} - {new Date(note.createdAt).toLocaleString()}
+                </p>
+              </li>
+            ))}
         </ul>
       )}
     </div>
