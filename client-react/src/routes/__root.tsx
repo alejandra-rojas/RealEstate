@@ -14,6 +14,11 @@ const activeProps = {
     fontWeight: "bold",
   },
 };
+const activeAdminProps = {
+  style: {
+    background: "#F6E58D",
+  },
+};
 
 export const Route = createRootRoute({
   component: () => (
@@ -62,12 +67,12 @@ export const Route = createRootRoute({
                     </li>
 
                     <li className="uppercase font-rmono bg-bggray hover:bg-accent py-1 px-2.5 text-almostblack">
-                      <Link to="/files" activeProps={activeProps}>
+                      <Link to="/files" activeProps={activeAdminProps}>
                         Files
                       </Link>
                     </li>
                     <li className="uppercase font-rmono bg-bggray hover:bg-accent py-1 px-2.5 text-almostblack">
-                      <Link to="/dashboard" activeProps={activeProps}>
+                      <Link to="/dashboard" activeProps={activeAdminProps}>
                         Dashboard
                       </Link>
                     </li>

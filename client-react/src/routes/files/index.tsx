@@ -10,6 +10,7 @@ import {
   sortByCreationDate,
 } from "../../features/Files/utils/filterUtils";
 import FilterPriceRange from "../../features/Files/FilterPriceRange";
+import FilterCheckboxes from "../../features/Files/FilterCheckboxes";
 
 export const Route = createFileRoute("/files/")({
   component: Files,
@@ -42,8 +43,8 @@ function Files() {
   return (
     <>
       {isFetched && (
-        <section>
-          <div className="max-w-7xl px-4 py-6 flex justify-between items-end">
+        <section className="flex flex-col gap-6">
+          <div className="w-full inline-flex rounded-lg border border-gray-100 justify-between items-end">
             <FilterTextInput
               filterText={filterText}
               onFilterTextChange={setFilterText}
@@ -55,7 +56,10 @@ function Files() {
               onMaxPriceChange={setMaxPrice}
             />
           </div>
-          <FilteredFiles files={filteredFiles ?? []} />
+          <div className="flex gap-8">
+            <FilterCheckboxes />
+            <FilteredFiles files={filteredFiles ?? []} />
+          </div>
         </section>
       )}
     </>
