@@ -38,9 +38,14 @@ function Homepage() {
 function FilterablePortfolio({ portfolio }: { portfolio: Asset[] }) {
   return (
     <>
-      {portfolio.map((property) => {
-        return <PropertyCard key={property.propertyId} property={property} />;
-      })}
+      {portfolio
+        .sort(
+          (a, b) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        )
+        .map((property) => {
+          return <PropertyCard key={property.propertyId} property={property} />;
+        })}
     </>
   );
 }
