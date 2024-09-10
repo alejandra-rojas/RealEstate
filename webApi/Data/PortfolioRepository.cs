@@ -114,6 +114,21 @@ public class PortfolioRepository(PortfolioDbContext context) : IPortfolioReposit
         return newProperty;
     }
 
+    public Note CreateNote(int id, AddNoteRequest request)
+    {
+        var newNote = new Note
+        {
+            Description = request.Description,
+            PropertyId = id
+        };
+
+        _context.Notes.Add(newNote);
+
+        _context.SaveChanges();
+
+        return newNote;
+    }
+
     public Property UpdateStatus(int id, int newStatus)
     {
         var property = GetOneFile(id);

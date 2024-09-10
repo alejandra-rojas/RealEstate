@@ -39,6 +39,12 @@ namespace webApi.Controllers
                 : NotFound($"Property with Id '{id}' was not found");
         }
 
+        [HttpGet("files/{id}/notes")]
+        public ActionResult<Note[]> GetNotes(int id)
+        {
+            throw new NotImplementedException();
+        }
+
 
         [HttpPost]
         public ActionResult<Property> Create(AddFileRequest request)
@@ -48,6 +54,15 @@ namespace webApi.Controllers
             return CreatedAtAction(nameof(GetOneFile), new { id = newFile!.PropertyId }, newFile);
         }
 
+        [HttpPost("files/{id}/notes")]
+        public ActionResult<Note> AddNote(int id, AddNoteRequest request)
+        {
+            var newNote = _repo.CreateNote(id, request);
+
+            return CreatedAtAction(nameof(GetNotes), new { id = newNote!.PropertyId }, newNote);
+        }
+
+
         [HttpPut("files/{id}/status")]
         public ActionResult<Property> UpdateFileStatus(int id, StatusUpdateRequest request)
         {
@@ -55,6 +70,7 @@ namespace webApi.Controllers
                 ? Ok(property)
                 : NotFound($"Property with Id '{id}' was not found");
         }
+
 
     }
 }

@@ -11,7 +11,15 @@ public class AddFileRequest
 
 }
 
+public class AddNoteRequest
+{
+    public required string Description { get; set; }
+
+}
+
 public class StatusUpdateRequest
 {
     public required int Status { get; set; }
+
 }
+
