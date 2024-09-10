@@ -4,7 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchFileById } from "../../utils/api";
 import StatusEdit from "../../features/File/StatusEdit";
 import Seller from "../../features/File/Seller.ui";
-import Agent from "../../features/File/Agent.ui";
 import Buyer from "../../features/File/Buyer.ui";
 import Events from "../../features/File/Events.ui";
 import Notes from "../../features/File/Notes.ui";
@@ -39,23 +38,73 @@ function SingleFile() {
   return (
     <>
       {isFetched && file && (
-        <div>
-          <h3>{file.propertyDetails.propertyName}</h3>
-          <StatusEdit id={id} status={file.status} />
-          <p>Price: ${file!.salePrice}</p>
-          <p>Commision: {file!.agreedCommission}%</p>
+        <section
+          className="bg-[#eeeeee] border border-gray-200 py-6 px-6"
+          style={{
+            clipPath: "polygon(0 0, 98% 0, 100% 2%, 100% 100%, 0 100%)",
+          }}
+        >
+          <div className="font-rmono uppercase text-sm text-almostblack flex justify-between pb-1 mb-4 border-b border-almostblack">
+            <p>/ PROPERTY ID: 102{file.propertyId}</p>
+          </div>
 
-          <Agent agent={file.propertyLiasonAgent} />
-          <Seller seller={file.seller} />
+          <div className="flex justify-between pb-4 mb-4 border-b border-gray-400">
+            <div className="flex font-rmono text-xl items-center gap-4">
+              <img
+                src={file.propertyLiasonAgent.photo}
+                alt={file.propertyLiasonAgent.name}
+                className="square h-12"
+              />
+              <div>
+                <h3 className="font-rmono text-xl font-semibold">
+                  {file.propertyDetails.propertyName}
+                </h3>
+                <p>
+                  ${file!.salePrice.toLocaleString()} - Commision:{" "}
+                  {file!.agreedCommission}%{" "}
+                </p>
+              </div>
+              <p></p>
+            </div>
+            <StatusEdit id={id} status={file.status} />
+          </div>
 
-          {file!.buyer && <Buyer buyer={file.buyer} />}
+          <div className="flex gap-6">
+            <div className="flex flex-col gap-6 w-1/3">
+              <img
+                src={file.propertyDetails.photo}
+                alt={file.propertyDetails.propertyName}
+              />
+              <div>
+                <p className="font-rmono uppercase text-xs text-almostblack flex justify-between pb-1 mb-2 border-b border-gray-400">
+                  {file.propertyDetails.description}
+                </p>
+                <ul className="font-rmono text-xs">
+                  <li className="font-semibold">
+                    {file.propertyDetails.address}
+                  </li>
+                  <li>
+                    Construction:{" "}
+                    {file.propertyDetails.constructionSizeInSquareMeters} sqm
+                  </li>
+                  <li>
+                    Land: {file.propertyDetails.landSizeInSquareMeters}sqm
+                  </li>
+                  <li>Number of rooms: {file.propertyDetails.numberOfRooms}</li>
+                </ul>
+              </div>
+              <Seller seller={file.seller} />
+              {file!.buyer && <Buyer buyer={file.buyer} />}
+            </div>
 
-          {file.events && file.events.length > 0 && (
-            <Events events={file.events} />
-          )}
-
-          <Notes notes={file.notes} id={id} />
-        </div>
+            <div className="flex w-2/3 gap-4">
+              <Notes notes={file.notes} id={id} />
+              {file.events && file.events.length > 0 && (
+                <Events events={file.events} />
+              )}
+            </div>
+          </div>
+        </section>
       )}
     </>
   );
