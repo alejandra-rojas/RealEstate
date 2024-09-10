@@ -16,6 +16,7 @@ import { Route as DashboardImport } from './routes/dashboard'
 import { Route as IndexImport } from './routes/index'
 import { Route as FilesIndexImport } from './routes/files/index'
 import { Route as PropertiesIdImport } from './routes/properties/$id'
+import { Route as FilesNewImport } from './routes/files/new'
 import { Route as FilesIdImport } from './routes/files/$id'
 
 // Create/Update Routes
@@ -42,6 +43,11 @@ const FilesIndexRoute = FilesIndexImport.update({
 
 const PropertiesIdRoute = PropertiesIdImport.update({
   path: '/properties/$id',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const FilesNewRoute = FilesNewImport.update({
+  path: '/files/new',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -82,6 +88,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FilesIdImport
       parentRoute: typeof rootRoute
     }
+    '/files/new': {
+      id: '/files/new'
+      path: '/files/new'
+      fullPath: '/files/new'
+      preLoaderRoute: typeof FilesNewImport
+      parentRoute: typeof rootRoute
+    }
     '/properties/$id': {
       id: '/properties/$id'
       path: '/properties/$id'
@@ -106,6 +119,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRoute
   '/new': typeof NewRoute
   '/files/$id': typeof FilesIdRoute
+  '/files/new': typeof FilesNewRoute
   '/properties/$id': typeof PropertiesIdRoute
   '/files': typeof FilesIndexRoute
 }
@@ -115,6 +129,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRoute
   '/new': typeof NewRoute
   '/files/$id': typeof FilesIdRoute
+  '/files/new': typeof FilesNewRoute
   '/properties/$id': typeof PropertiesIdRoute
   '/files': typeof FilesIndexRoute
 }
@@ -125,6 +140,7 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRoute
   '/new': typeof NewRoute
   '/files/$id': typeof FilesIdRoute
+  '/files/new': typeof FilesNewRoute
   '/properties/$id': typeof PropertiesIdRoute
   '/files/': typeof FilesIndexRoute
 }
@@ -136,16 +152,25 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/new'
     | '/files/$id'
+    | '/files/new'
     | '/properties/$id'
     | '/files'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/new' | '/files/$id' | '/properties/$id' | '/files'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/new'
+    | '/files/$id'
+    | '/files/new'
+    | '/properties/$id'
+    | '/files'
   id:
     | '__root__'
     | '/'
     | '/dashboard'
     | '/new'
     | '/files/$id'
+    | '/files/new'
     | '/properties/$id'
     | '/files/'
   fileRoutesById: FileRoutesById
@@ -156,6 +181,7 @@ export interface RootRouteChildren {
   DashboardRoute: typeof DashboardRoute
   NewRoute: typeof NewRoute
   FilesIdRoute: typeof FilesIdRoute
+  FilesNewRoute: typeof FilesNewRoute
   PropertiesIdRoute: typeof PropertiesIdRoute
   FilesIndexRoute: typeof FilesIndexRoute
 }
@@ -165,6 +191,7 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardRoute: DashboardRoute,
   NewRoute: NewRoute,
   FilesIdRoute: FilesIdRoute,
+  FilesNewRoute: FilesNewRoute,
   PropertiesIdRoute: PropertiesIdRoute,
   FilesIndexRoute: FilesIndexRoute,
 }
@@ -185,6 +212,7 @@ export const routeTree = rootRoute
         "/dashboard",
         "/new",
         "/files/$id",
+        "/files/new",
         "/properties/$id",
         "/files/"
       ]
@@ -200,6 +228,9 @@ export const routeTree = rootRoute
     },
     "/files/$id": {
       "filePath": "files/$id.tsx"
+    },
+    "/files/new": {
+      "filePath": "files/new.tsx"
     },
     "/properties/$id": {
       "filePath": "properties/$id.tsx"
