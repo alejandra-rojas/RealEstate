@@ -3,6 +3,7 @@ import { useState } from "react";
 import { updateStatus } from "../../utils/api";
 import { Status } from "../../types/types";
 import { toast } from "react-toastify";
+import StatusBadge from "./StatusBadge.ui";
 
 interface StatusEditProps {
   id: string;
@@ -62,9 +63,7 @@ export default function StatusEdit({ id, status }: StatusEditProps) {
                 ))}
             </select>
           ) : (
-            <span className="font-rmono uppercase text-sm text-almostblack flex justify-between pb-1 border border-gray-400 px-2 py-1 cursor-default">
-              {Status[status]}
-            </span>
+            <StatusBadge status={Status[status]}>{Status[status]}</StatusBadge>
           )}
         </div>
         {isEditing && (
