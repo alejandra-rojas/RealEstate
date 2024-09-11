@@ -15,7 +15,7 @@ function OngoingTransactions({ files }: { files: File[] }) {
       {underOfferFiles.length > 0 ? (
         <ul className="flex flex-col gap-3">
           {underOfferFiles.map((file) => (
-            <li>
+            <li key={file.propertyId}>
               <div className="mb-1 border-b border-[#CFCFCF]">
                 status: awaiting bank
               </div>
@@ -30,7 +30,7 @@ function OngoingTransactions({ files }: { files: File[] }) {
                 <div>
                   <ul className="flex flex-col font-rmono text-xs text-gray-800">
                     <li>${file.salePrice.toLocaleString()}</li>
-                    <li>Buyer: {file.buyer.fullName}</li>
+                    {file.buyer && <li>Buyer: {file.buyer.fullName}</li>}
                     <li>Seller: {file.seller.fullName}</li>
                     <li>
                       Agent: {file.propertyLiasonAgent.name.split(" ")[0]}
