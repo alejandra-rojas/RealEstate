@@ -84,9 +84,9 @@ function Files() {
     <>
       {isFetched && (
         <section className="flex flex-col gap-6">
-          <div className="w-full inline-flex rounded-lg border border-gray-100 justify-between items-end">
-            Something else
-          </div>
+          <h2 className="font-rmono uppercase text-4xl py-3 text-gray-200">
+            Property files system
+          </h2>
           <div className="flex gap-8">
             <FilterSidebar
               filterText={filterText}
