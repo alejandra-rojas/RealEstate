@@ -45,7 +45,7 @@ const CheckboxIconSimple = ({ width = 12, height = 11 }) => (
   </svg>
 );
 
-export default function SellerDocs() {
+export default function Documentation() {
   return (
     <article className="mb-6">
       <div className="flex justify-between pb-1 border-b border-gray-400">
