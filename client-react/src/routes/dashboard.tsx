@@ -27,7 +27,7 @@ function Dashboard() {
       <section className="flex flex-col gap-6 ">
         <div className="flex justify-between items-start">
           <h2 className="font-rmono uppercase text-4xl py-3 text-gray-200 leading-none">
-            Management Dashboard
+            Dashboard
           </h2>
           <Buttons />
         </div>
