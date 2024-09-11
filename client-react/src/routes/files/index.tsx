@@ -28,6 +28,7 @@ function Files() {
     filterText: "",
     minPrice: 0,
     maxPrice: 20000000,
+    statuses: { active: true, underOffer: true, inactive: true, sold: true },
   };
 
   const [filterText, setFilterText] = useState<string>(
@@ -39,11 +40,20 @@ function Files() {
   const [maxPrice, setMaxPrice] = useState<number | null>(
     initialFilterState.maxPrice
   );
+  const [statuses, setStatuses] = useState(initialFilterState.statuses);
 
   const handleClearFilters = () => {
     setFilterText(initialFilterState.filterText);
     setMinPrice(initialFilterState.minPrice);
     setMaxPrice(initialFilterState.maxPrice);
+    setStatuses(initialFilterState.statuses);
+  };
+
+  const handleStatusChange = (statusKey: keyof typeof statuses) => {
+    setStatuses((prevStatuses) => ({
+      ...prevStatuses,
+      [statusKey]: !prevStatuses[statusKey],
+    }));
   };
 
   if (error) return "An error has occurred while fetching : " + error.message;
@@ -53,7 +63,8 @@ function Files() {
     sortedFiles,
     filterText,
     minPrice,
-    maxPrice
+    maxPrice,
+    statuses
   );
 
   return (
@@ -71,6 +82,8 @@ function Files() {
               maxPrice={maxPrice}
               onMinPriceChange={setMinPrice}
               onMaxPriceChange={setMaxPrice}
+              statuses={statuses}
+              onStatusChange={handleStatusChange}
               onClearFilters={handleClearFilters}
             />
             <FilteredFiles files={filteredFiles ?? []} />
