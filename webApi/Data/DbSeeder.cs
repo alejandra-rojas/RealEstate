@@ -225,6 +225,7 @@ public static class DbSeeder
                         PropertyId = 11,
                         Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop11.jpg"
                     },
+
                 };
 
             context.AddRange(properties);
@@ -342,17 +343,6 @@ public static class DbSeeder
                     AgreedCommission = 3.5,
                     Status = Status.Active,
                 },
-                new Property
-                {
-                    PropertyDetailsId = 12,
-                    SellerId = 3,
-                    PropertyLiasonAgentId = 4,
-                    SalePrice = 740000,
-                    AgreedCommission = 3.5,
-                    Status = Status.Sold,
-                    BuyerId = 3
-                }
-
             };
             context.AddRange(propertiesFiles);
             context.SaveChanges();
