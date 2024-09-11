@@ -1,3 +1,4 @@
+import FilterByCharacteristics from "./FilterByCharacteristics";
 import FilterByStatus from "./FilterByStatus";
 import FilterPriceRange from "./FilterPriceRange";
 import FilterTextInput from "./FilterTextInput";
@@ -54,6 +55,7 @@ function FilterSidebar({
         onMaxPriceChange={onMaxPriceChange}
       />
       <FilterByStatus statuses={statuses} onStatusChange={onStatusChange} />
+      <FilterByCharacteristics />
     </div>
   );
 }
