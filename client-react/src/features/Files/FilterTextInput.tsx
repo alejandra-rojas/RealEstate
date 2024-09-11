@@ -6,7 +6,7 @@ function FilterTextInput({
   onFilterTextChange: React.Dispatch<React.SetStateAction<string>>;
 }) {
   return (
-    <div className="flex justify-between ">
+    <div className="flex justify-between pt-2">
       <div className="relative w-full">
         <label htmlFor="Search" className="sr-only">
           Search
