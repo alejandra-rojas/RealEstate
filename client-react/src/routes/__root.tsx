@@ -16,8 +16,7 @@ const activeProps = {
 };
 const activeAdminProps = {
   style: {
-    color: "black",
-    fontWeight: "semibold",
+    color: "#1f2937",
   },
 };
 
@@ -59,13 +58,13 @@ function Navigation() {
             <SignedIn>
               <nav id="admin-nav" className="flex justify-between gap-6">
                 <ul className="flex gap-4">
-                  <li className="uppercase font-rmono bg-bggray py-1 px-2 text-almostblack">
+                  <li className="uppercase font-rmono bg-gray-200 py-1 px-2 text-almostblack">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={2}
-                      stroke="currentColor"
+                      stroke="#9ca3af"
                       className="size-5 pt-1"
                     >
                       <path
@@ -76,12 +75,12 @@ function Navigation() {
                     </svg>
                   </li>
 
-                  <li className="uppercase font-rmono bg-bggray hover:bg-accent py-1 px-2.5 text-almostblack">
+                  <li className="uppercase font-rmono font-normal bg-gray-200 hover:bg-accent py-1 px-2.5 text-gray-400">
                     <Link to="/files" activeProps={activeAdminProps}>
                       Files
                     </Link>
                   </li>
-                  <li className="uppercase font-rmono bg-bggray hover:bg-accent py-1 px-2.5 text-almostblack">
+                  <li className="uppercase font-rmono font-normal bg-gray-200 hover:bg-accent py-1 px-2.5 text-gray-400">
                     <Link to="/dashboard" activeProps={activeAdminProps}>
                       Dashboard
                     </Link>
