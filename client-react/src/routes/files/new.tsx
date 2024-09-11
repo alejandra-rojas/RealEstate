@@ -8,7 +8,7 @@ export const Route = createFileRoute("/files/new")({
 
 function NewPropertyPage() {
   return (
-    <section className="flex flex-col mt-6 ">
+    <section className="flex flex-col mt-6">
       <div className="bg-[#eeeeee] border border-gray-200 py-6 px-6">
         <div className="font-rmono uppercase text-sm text-almostblack flex justify-between pb-1 mb-4 border-b border-almostblack">
           <h2>/ File a new property </h2>

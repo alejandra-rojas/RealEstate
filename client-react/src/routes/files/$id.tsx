@@ -39,7 +39,7 @@ function SingleFile() {
     <>
       {isFetched && file && (
         <section
-          className="bg-[#eeeeee] border border-gray-200 py-6 px-6"
+          className="bg-[#eeeeee] border border-gray-200 mt-6 py-6 px-6"
           style={{
             clipPath: "polygon(0 0, 100% 0, 100% 0%, 100% 100%, 0 100%)",
           }}
