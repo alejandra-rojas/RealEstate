@@ -24,30 +24,31 @@ function RecentNotes({ files }: { files: File[] }) {
   const latestNotes = sortedNotes.slice(0, 5);
 
   return (
-    <section className="bg-[#e7e7e7] py-4 px-6 rounded-xl flex flex-col gap-4 ">
-      <h2 className="font-rmono text-xl border-b border-[#CFCFCF]">
-        Latest notes on files
-      </h2>
-      <ul className="flex flex-col gap-3 ">
-        {latestNotes.length > 0 ? (
-          latestNotes.map((note) => (
-            <li key={note.noteId} className="pb-2 border-b border-[#CFCFCF]">
-              <p className="capitalize text-sm text-black">
-                {note.description}
-              </p>
-              <p className="font-rmono text-xs text-gray-800">
-                <Link to={`/files/${note.propertyId}`}>
-                  {note.propertyName}{" "}
-                </Link>
-                file - {new Date(note.createdAt).toLocaleString()}{" "}
-                {note.author.split(" ")[0]}
-              </p>
-            </li>
-          ))
-        ) : (
-          <p>No recent notes available</p>
-        )}
-      </ul>
+    <section className="bg-[#eeeeee] border border-gray-200 p-8 rounded-sm flex flex-col gap-4 ">
+      <h3 className="font-rmono uppercase text-sm text-almostblack pb-1  border-b border-gray-400">
+        / Latest notes on files
+      </h3>
+
+      {latestNotes.length > 0 ? (
+        latestNotes.map((note) => (
+          <ul className="w-3/4">
+            <Link to={`/files/${note.propertyId}`}>
+              <li key={note.noteId} className="flex flex-col gap-1">
+                <p className="leading-tight text-md ">{note.description}</p>
+                <div className="flex gap-1 font-rmono text-sm">
+                  <p className="uppercase font-normal">{note.propertyName} -</p>
+                  <p className="">
+                    {new Date(note.createdAt).toLocaleString()}
+                  </p>
+                  <p className="">{note.author.split(" ")[0]}</p>
+                </div>
+              </li>
+            </Link>
+          </ul>
+        ))
+      ) : (
+        <p>No recent notes available</p>
+      )}
     </section>
   );
 }

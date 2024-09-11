@@ -24,7 +24,7 @@ function Dashboard() {
   return (
     isFetched &&
     files && (
-      <section className="flex flex-col gap-6 ">
+      <section className="flex flex-col gap-4 ">
         <div className="flex ">
           {/* <h2 className="font-rmono uppercase text-4xl py-3 text-gray-200 leading-none">
             Dashboard
