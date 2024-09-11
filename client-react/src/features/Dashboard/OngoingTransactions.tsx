@@ -6,7 +6,17 @@ function OngoingTransactions({ files }: { files: File[] }) {
     (file) => file.status === Status.UnderOffer
   );
 
-  console.log(underOfferFiles);
+  const statusMessages = [
+    "Waiting for seller",
+    "Waiting for buyer",
+    "Waiting for third party",
+  ];
+
+  const getRandomMessage = () => {
+    const randomIndex = Math.floor(Math.random() * statusMessages.length);
+    return statusMessages[randomIndex];
+  };
+
   return (
     <article className="w-1/2 bg-[#eeeeee] border border-gray-200 p-8 rounded-sm flex flex-col gap-4 ">
       <h3 className="font-rmono uppercase text-sm text-almostblack pb-1  border-b border-gray-400">
@@ -17,7 +27,7 @@ function OngoingTransactions({ files }: { files: File[] }) {
           {underOfferFiles.map((file) => (
             <li key={file.propertyId}>
               <div className="mb-1 border-b border-[#CFCFCF]">
-                status: awaiting bank
+                {getRandomMessage()}
               </div>
               <div key={file.propertyId} className="flex gap-2">
                 <Link to={`/files/${file.propertyId}`}>
