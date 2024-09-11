@@ -112,8 +112,32 @@ function SingleFile() {
               <Documentation hasBuyer={!!file.buyer} />
               <div className="flex gap-4">
                 <Notes notes={file.notes} id={id} />
-                {file.events && file.events.length > 0 && (
+                {file.events && file.events.length > 0 ? (
                   <Events events={file.events} />
+                ) : (
+                  <div className="w-1/4">
+                    <div className="flex justify-between pb-1 mb-4 border-b border-gray-400 ">
+                      <h3 className="font-rmono uppercase text-sm text-almostblack ">
+                        Events
+                      </h3>
+                      <button>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1}
+                          stroke="currentColor"
+                          className="size-5 hover:text-red-500"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 4.5v15m7.5-7.5h-15"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
                 )}
               </div>
             </div>

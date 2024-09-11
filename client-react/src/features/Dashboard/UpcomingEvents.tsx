@@ -21,11 +21,8 @@ function UpcomingEvents({ files }: { files: File[] }) {
       <ul className="flex flex-wrap gap-7 pl-3">
         {upcomingEvents.length > 0 ? (
           upcomingEvents.map((event) => (
-            <Link to={`/files/${event.propertyId}`}>
-              <li
-                key={event.eventId}
-                className="flex flex-col gap-1 pr-6 border-r border-yellow-500"
-              >
+            <Link to={`/files/${event.propertyId}`} key={event.eventId}>
+              <li className="flex flex-col gap-1 pr-6 border-r border-yellow-500">
                 <p className="font-rmono uppercase text-sm font-semibold">
                   {new Date(event.date).toLocaleDateString(undefined, {
                     weekday: "short",

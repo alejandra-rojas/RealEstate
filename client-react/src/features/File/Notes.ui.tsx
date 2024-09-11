@@ -16,7 +16,7 @@ function Notes({ notes, id }: { notes: Note[]; id: string }) {
   };
 
   return (
-    <div>
+    <article className="w-3/4">
       <div className="flex justify-between pb-1 mb-4 border-b border-gray-400">
         <h3 className="font-rmono uppercase text-sm text-almostblack ">
           Notes
@@ -40,7 +40,7 @@ function Notes({ notes, id }: { notes: Note[]; id: string }) {
       </div>
       {isAddingNote && <AddNewNote onClose={handleCloseForm} id={id} />}
       {notes.length === 0 ? (
-        <p>No notes available for this property.</p>
+        <p>No notes on this file.</p>
       ) : (
         <ul className="flex flex-col gap-4 pr-5">
           {notes
@@ -61,7 +61,7 @@ function Notes({ notes, id }: { notes: Note[]; id: string }) {
             ))}
         </ul>
       )}
-    </div>
+    </article>
   );
 }
 

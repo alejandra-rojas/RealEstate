@@ -31,15 +31,18 @@ function RecentNotes({ files }: { files: File[] }) {
 
       {latestNotes.length > 0 ? (
         latestNotes.map((note) => (
-          <ul className="w-[85%]">
-            <Link to={`/files/${note.propertyId}`}>
-              <li key={note.noteId} className="flex flex-col gap-1">
-                <p className="leading-tight text-md ">{note.description}</p>
-                <div className="flex gap-1 font-rmono text-sm">
-                  <p className="uppercase font-normal">{note.propertyName} -</p>
-                  <p className="">
-                    {new Date(note.createdAt).toLocaleString()}
-                  </p>
+          <ul className="flex flex-col gap-3">
+            <Link to={`/files/${note.propertyId}`} key={note.noteId}>
+              <li
+                key={note.noteId}
+                className="flex flex-col gap-1 pb-3 border-b border-dotted border-gray-400 "
+              >
+                <p className="w-[85%]  leading-tight text-md ">
+                  {note.description}
+                </p>
+                <div className="flex gap-1  font-normal font-rmono text-xs">
+                  <p className="uppercase">{note.propertyName} -</p>
+                  <p>{new Date(note.createdAt).toLocaleString()}</p>
                   <p className="">{note.author.split(" ")[0]}</p>
                 </div>
               </li>
