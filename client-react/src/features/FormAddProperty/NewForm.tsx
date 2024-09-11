@@ -159,9 +159,9 @@ function NewForm() {
               }`}
             />
           </Field>
-          <Field label="number of rooms">
+          <Field label="photo">
             <input
-              type="number"
+              type="file"
               name="rooms"
               id="rooms"
               className={`p-2.5 w-full ${
@@ -179,7 +179,7 @@ function NewForm() {
       <div className="flex gap-4">
         <Field label="full name">
           <input
-            type="number"
+            type="text"
             name="land"
             id="land"
             className={`p-2.5 w-full ${
@@ -189,7 +189,7 @@ function NewForm() {
         </Field>
         <Field label="contact number">
           <input
-            type="number"
+            type="text"
             name="construction"
             id="construction"
             className={`p-2.5 w-full ${
@@ -199,7 +199,7 @@ function NewForm() {
         </Field>
         <Field label="email address">
           <input
-            type="number"
+            type="text"
             name="rooms"
             id="rooms"
             className={`p-2.5 w-full ${

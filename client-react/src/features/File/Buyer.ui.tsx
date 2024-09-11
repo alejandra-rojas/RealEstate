@@ -11,6 +11,7 @@ function Buyer({ buyer }: { buyer: Buyer }) {
       </p>
       <p className="font-semibold">{buyer.fullName}</p>
       <p>{buyer.primaryNumber}</p>
+      <p>Accepted offer: $500,000</p>
     </div>
   );
 }

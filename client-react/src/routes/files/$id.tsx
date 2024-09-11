@@ -96,7 +96,16 @@ function SingleFile() {
                 </ul>
               </div>
               <Seller seller={file.seller} />
-              {file!.buyer && <Buyer buyer={file.buyer} />}
+
+              {file!.buyer ? (
+                <Buyer buyer={file.buyer} />
+              ) : (
+                <div className="bg-[#D9C9B7] p-3 border-l-4 border-[#4a4540]">
+                  <h3 className="font-rmono uppercase text-sm text-almostblack pb-1">
+                    + Add a buyer
+                  </h3>
+                </div>
+              )}
             </div>
 
             <div className="flex flex-col w-2/3 gap-4">
