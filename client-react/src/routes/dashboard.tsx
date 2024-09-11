@@ -26,19 +26,17 @@ function Dashboard() {
     files && (
       <section className="flex flex-col gap-4 ">
         <div className="flex ">
-          {/* <h2 className="font-rmono uppercase text-4xl py-3 text-gray-200 leading-none">
-            Dashboard
-          </h2> */}
           <Buttons />
         </div>
-        <UpcomingEvents files={files} />
+        <div className="flex gap-3.5">
+          <UpcomingEvents files={files} />
+          <BusinessPerformance files={files} />
+          <TopSellers files={files} />
+        </div>
+
         <div className="flex gap-4">
           <OngoingTransactions files={files} />
           <RecentNotes files={files} />
-        </div>
-        <div className="bg-[#eeeeee] border border-gray-200 p-8 rounded-sm flex">
-          <BusinessPerformance files={files} />
-          <TopSellers files={files} />
         </div>
       </section>
     )

@@ -83,7 +83,7 @@ function Files() {
   return (
     <>
       {isFetched && (
-        <section className="flex flex-col gap-6">
+        <section className="flex flex-col gap-4">
           <h2 className="font-rmono uppercase text-4xl py-3 text-gray-200">
             Property files system
           </h2>

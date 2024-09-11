@@ -18,37 +18,39 @@ function OngoingTransactions({ files }: { files: File[] }) {
   };
 
   return (
-    <article className="w-1/2 bg-[#eeeeee] border border-gray-200 p-8 rounded-sm flex flex-col gap-4 ">
+    <article className="w-[60%] bg-[#eeeeee] border border-gray-200 p-8 rounded-sm flex flex-col gap-4 ">
       <h3 className="font-rmono uppercase text-sm text-almostblack pb-1  border-b border-gray-400">
-        / Ongoing transactions
+        / under offer transactions
       </h3>
       {underOfferFiles.length > 0 ? (
-        <ul className="flex flex-col gap-3">
+        <ul className="grid grid-cols-2 gap-y-8">
           {underOfferFiles.map((file) => (
-            <li key={file.propertyId}>
-              <div className="mb-1 border-b border-[#CFCFCF]">
-                {getRandomMessage()}
-              </div>
-              <div key={file.propertyId} className="flex gap-2">
-                <Link to={`/files/${file.propertyId}`}>
-                  <img
-                    src={file.propertyDetails.photo}
-                    alt={file.propertyDetails.propertyName}
-                    className="w-20 "
-                  />
-                </Link>
-                <div>
-                  <ul className="flex flex-col font-rmono text-xs text-gray-800">
-                    <li>${file.salePrice.toLocaleString()}</li>
-                    {file.buyer && <li>Buyer: {file.buyer.fullName}</li>}
-                    <li>Seller: {file.seller.fullName}</li>
-                    <li>
-                      Agent: {file.propertyLiasonAgent.name.split(" ")[0]}
-                    </li>
+            <Link to={`/files/${file.propertyId}`} key={file.propertyId}>
+              <li key={file.propertyId} className="flex gap-4">
+                <img
+                  src={file.propertyDetails.photo}
+                  alt={file.propertyDetails.propertyName}
+                  className="w-24 h-24 object-cover aspect-square"
+                />
+
+                <div key={file.propertyId} className="flex gap-2">
+                  <ul className="flex flex-col font-rmono text-xs text-gray-800 gap-1">
+                    <div>
+                      <li className="uppercase p-1 bg-white">
+                        {getRandomMessage()}
+                      </li>
+                      {/* <li>{file.propertyDetails.propertyName}</li> */}
+                    </div>
+                    <div>
+                      <li>${file.salePrice.toLocaleString()}</li>
+                      {file.buyer && <li>Buyer: {file.buyer.fullName}</li>}
+                      <li>Seller: {file.seller.fullName}</li>
+                      <li>Agent: {file.propertyLiasonAgent.name}</li>
+                    </div>
                   </ul>
                 </div>
-              </div>
-            </li>
+              </li>
+            </Link>
           ))}
         </ul>
       ) : (

@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 
 function Buttons() {
   return (
-    <div className="mt-3 inline-flex rounded-lg border border-gray-100 bg-gray-200 p-1 items-center w-full">
+    <div className="mt-3 inline-flex rounded-lg border border-gray-100 bg-gray-200 p-1 items-center w-full justify-center">
       <Link to={`/files/new`}>
         <button className="inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-gray-900 hover:text-gray-700 focus:relative dark:text-gray-400 dark:hover:text-gray-200 hover:dark:bg-gray-800">
           <svg

@@ -24,7 +24,7 @@ function RecentNotes({ files }: { files: File[] }) {
   const latestNotes = sortedNotes.slice(0, 5);
 
   return (
-    <article className="w-1/2 bg-[#eeeeee] border border-gray-200 p-8 rounded-sm flex flex-col gap-4 ">
+    <article className="w-[40%] bg-[#eeeeee] border border-gray-200 p-8 rounded-sm flex flex-col gap-4 ">
       <h3 className="font-rmono uppercase text-sm text-almostblack pb-1  border-b border-gray-400">
         / Latest notes on files
       </h3>
@@ -37,7 +37,7 @@ function RecentNotes({ files }: { files: File[] }) {
                 key={note.noteId}
                 className="flex flex-col gap-1 pb-3 border-b border-dotted border-gray-400 "
               >
-                <p className="w-[85%]  leading-tight text-md ">
+                <p className="w-[85%] leading-tight text-md font-normal">
                   {note.description}
                 </p>
                 <div className="flex gap-1  font-normal font-rmono text-xs">

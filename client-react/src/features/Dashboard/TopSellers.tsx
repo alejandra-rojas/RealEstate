@@ -4,29 +4,29 @@ function TopSellers({ files }: { files: File[] }) {
   const topSellers = processAgentCommissions(files);
 
   return (
-    <article className="font-rmono flex flex-col gap-4 w-1/2">
+    <article className="font-rmono flex flex-col gap-4 w-[20%] bg-[#eeeeee] border border-gray-200 p-2 rounded-sm ">
       <h3 className="font-rmono uppercase text-sm text-almostblack pb-1  border-b border-gray-400">
-        / Top agents
+        / top sellers
       </h3>
-      {topSellers.length > 0 ? (
-        <ul className="flex flex-col gap-4">
-          {topSellers.map((agent) => (
-            <li key={agent.agentId}>
-              <div className="flex items-center gap-3">
-                <img
-                  src={agent.agentPhoto}
-                  alt={agent.agentName}
-                  className="w-8 aspect-square"
-                />
-                <strong>{agent.agentName}:</strong>$
-                {agent.totalCommission.toLocaleString()}
-              </div>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No sales data available.</p>
-      )}
+      <div className="uppercase text-sm flex flex-col px-2 gap-1">
+        {topSellers.length > 0 ? (
+          <ul className="flex flex-col">
+            {topSellers.map((agent, index) => (
+              <li
+                key={agent.agentId}
+                className={`flex items-center gap-3 ${index === 0 ? "font-semibold" : ""}`}
+              >
+                <div className="flex items-center gap-3">
+                  {agent.agentName.split(" ")[0]}:$
+                  {agent.totalCommission.toLocaleString()}
+                </div>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No sales data available.</p>
+        )}
+      </div>
     </article>
   );
 }

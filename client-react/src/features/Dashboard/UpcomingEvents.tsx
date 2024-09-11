@@ -13,16 +13,18 @@ function UpcomingEvents({ files }: { files: File[] }) {
 
   console.log(upcomingEvents);
   return (
-    <article className="flex flex-col gap-4 bg-yellow-100  border-l-4 border-yellow-500 p-4">
-      <div className="font-rmono uppercase text-sm text-almostblack flex justify-between pb-1 border-b border-yellow-500">
+    <article className="flex flex-col bg-yellow-100 w-[60%]  border border-yellow-500">
+      <div className="p-2 font-rmono uppercase text-sm text-almostblack flex justify-between pb-1 border-b border-yellow-500">
         <h3 className="text-yellow-500">/ Upcomming appointments</h3>
         {/* <button className="uppercase cursor-pointer underline hover:font-medium"></button> */}
       </div>
-      <ul className="flex flex-wrap gap-7 pl-3">
+      <ul className="flex flex-wrap pl-1">
         {upcomingEvents.length > 0 ? (
-          upcomingEvents.map((event) => (
+          upcomingEvents.map((event, index) => (
             <Link to={`/files/${event.propertyId}`} key={event.eventId}>
-              <li className="flex flex-col gap-1 pr-6 border-r border-yellow-500">
+              <li
+                className={`flex flex-col p-4  ${index !== 0 ? "border-dotted border-l border-yellow-500 " : ""} `}
+              >
                 <p className="font-rmono uppercase text-sm font-semibold">
                   {new Date(event.date).toLocaleDateString(undefined, {
                     weekday: "short",

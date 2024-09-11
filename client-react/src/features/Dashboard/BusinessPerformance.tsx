@@ -8,24 +8,22 @@ function BusinessPerformance({ files }: { files: File[] }) {
   }, 0);
 
   return (
-    <article className="font-rmono flex flex-col gap-4 w-1/2">
+    <article className="font-rmono flex flex-col gap-4 w-[20%] bg-[#eeeeee] border border-gray-200 p-2 rounded-sm ">
       <h3 className="font-rmono uppercase text-sm text-almostblack pb-1  border-b border-gray-400">
-        / Business Overview
+        / Monthly Overview
       </h3>
-      <div className="flex flex-col gap-2">
-        <div className="flex gap-2 items-end">
-          <p className="text-3xl leading-none">
-            ${totalCommissionEarned.toLocaleString()}
-          </p>
-          <h3 className="">Commission/year</h3>
+      <div className="uppercase text-sm flex flex-col px-2 ">
+        <div className="flex gap-2 items-end font-semibold">
+          <h4 className="">Commission: </h4>
+          <p>${totalCommissionEarned.toLocaleString()}</p>
         </div>
         <div className="flex gap-2 items-end">
-          <p className="text-3xl leading-none">{soldProperties.length}</p>
-          <h3 className="">Completed Transactions</h3>
+          <h4 className="">Transactions:</h4>
+          <p>{soldProperties.length}</p>
         </div>
         <div className="flex gap-2 items-end">
-          <p className="text-3xl leading-none">{files.length}</p>
-          <h3 className="">Booked Properties</h3>
+          <h4 className="">Booked Properties:</h4>
+          <p>{files.length}</p>
         </div>
       </div>
     </article>
