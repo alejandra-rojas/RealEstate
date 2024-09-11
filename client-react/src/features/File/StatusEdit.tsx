@@ -47,7 +47,7 @@ export default function StatusEdit({ id, status }: StatusEditProps) {
 
   return (
     <div>
-      <div className="flex gap-2">
+      <div className="flex flex-row-reverse gap-2">
         <div>
           {isEditing ? (
             <select

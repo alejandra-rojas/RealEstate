@@ -19,7 +19,7 @@ function Notes({ notes, id }: { notes: Note[]; id: string }) {
     <div>
       <div className="flex justify-between pb-1 mb-4 border-b border-gray-400">
         <h3 className="font-rmono uppercase text-sm text-almostblack ">
-          Transaction Notes
+          Notes
         </h3>
         <button onClick={handleAddNoteClick}>
           <svg
@@ -42,7 +42,7 @@ function Notes({ notes, id }: { notes: Note[]; id: string }) {
       {notes.length === 0 ? (
         <p>No notes available for this property.</p>
       ) : (
-        <ul className="flex flex-col gap-4">
+        <ul className="flex flex-col gap-4 pr-5">
           {notes
             .sort(
               (a, b) =>

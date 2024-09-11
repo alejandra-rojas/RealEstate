@@ -7,6 +7,7 @@ import Seller from "../../features/File/Seller.ui";
 import Buyer from "../../features/File/Buyer.ui";
 import Events from "../../features/File/Events.ui";
 import Notes from "../../features/File/Notes.ui";
+import SellerDocs from "../../features/File/SellerDocs.ui";
 
 export const Route = createFileRoute("/files/$id")({
   component: SingleFile,
@@ -98,11 +99,14 @@ function SingleFile() {
               {file!.buyer && <Buyer buyer={file.buyer} />}
             </div>
 
-            <div className="flex w-2/3 gap-4">
-              <Notes notes={file.notes} id={id} />
-              {file.events && file.events.length > 0 && (
-                <Events events={file.events} />
-              )}
+            <div className="flex flex-col w-2/3 gap-4">
+              <SellerDocs />
+              <div className="flex gap-4">
+                <Notes notes={file.notes} id={id} />
+                {file.events && file.events.length > 0 && (
+                  <Events events={file.events} />
+                )}
+              </div>
             </div>
           </div>
         </section>
