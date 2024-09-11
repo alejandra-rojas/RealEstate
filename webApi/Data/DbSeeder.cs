@@ -225,17 +225,6 @@ public static class DbSeeder
                         PropertyId = 11,
                         Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop11.jpg"
                     },
-                    new PropertyDetails
-                    {
-                        PropertyName = "Riverside Cabin",
-                        Address = "456 River Rd, Nashville, TN",
-                        LandSizeInSquareMeters = 500,
-                        ConstructionSizeInSquareMeters = 200,
-                        NumberOfRooms = 4,
-                        Description = "Rustic cabin by the river.",
-                        PropertyId = 12,
-                        Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop13.jpg"
-                    }
                 };
 
             context.AddRange(properties);

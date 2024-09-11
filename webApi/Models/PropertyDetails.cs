@@ -12,7 +12,7 @@ public class PropertyDetails
     public double ConstructionSizeInSquareMeters { get; set; }
     public double NumberOfRooms { get; set; }
     public required string Description { get; set; }
-    public string Photo { get; set; } = "https://placehold.co/300x200/d1d1d1/dedede?text=img";
+    public string Photo { get; set; } = "https://storage4realestate.blob.core.windows.net/container-imgs/prop13.jpg";
     public int PropertyId { get; set; }
 
     [JsonIgnore]
