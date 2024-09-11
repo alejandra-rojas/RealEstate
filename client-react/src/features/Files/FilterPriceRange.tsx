@@ -19,29 +19,42 @@ function FilterPriceRange({
     onMaxPriceChange(e.target.value ? Number(e.target.value) : null);
   };
   return (
-    <div className="flex gap-1 text-gray-600 font-rmono uppercase text-xs ">
-      <div className="flex flex-col p-1 w-1/2">
-        <label className="block">Min Price</label>
-        <input
-          type="number"
-          value={minPrice ?? ""}
-          onChange={handleMinPriceChange}
-          placeholder="Min Price"
-          className="border-gray-200 rounded-sm py-2.5 sm:text-sm"
-        />
-      </div>
+    <>
+      <div className="pl-1 pb-3">
+        <header className="flex items-center justify-between px-0 py-1.5">
+          <span className="text-sm text-gray-500"></span>
+        </header>
+        <div className="flex justify-between gap-2">
+          <label htmlFor="FilterPriceFrom" className="flex items-center gap-1">
+            <span className="text-sm text-gray-600">$</span>
 
-      <div className="flex flex-col p-1 w-1/2">
-        <label className="block">Max Price</label>
-        <input
-          type="number"
-          value={maxPrice ?? ""}
-          onChange={handleMaxPriceChange}
-          placeholder="Max Price"
-          className=" border-gray-200 rounded-sm py-2.5 sm:text-sm"
-        />
+            <input
+              type="number"
+              id="FilterPriceFrom"
+              value={minPrice ?? ""}
+              onChange={handleMinPriceChange}
+              placeholder="Min"
+              className="w-full rounded-sm border-gray-200 shadow-xs sm:text-sm"
+              step="50000"
+            />
+          </label>
+
+          <label htmlFor="FilterPriceTo" className="flex items-center gap-2">
+            <span className="text-sm text-gray-600">$</span>
+
+            <input
+              type="number"
+              id="FilterPriceTo"
+              value={maxPrice ?? ""}
+              onChange={handleMaxPriceChange}
+              placeholder="Max"
+              className="w-full rounded-sm border-gray-200 shadow-xs sm:text-sm"
+              step="50000"
+            />
+          </label>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

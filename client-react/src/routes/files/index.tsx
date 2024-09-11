@@ -3,7 +3,7 @@ import { File } from "../../types/types";
 import { useQuery } from "@tanstack/react-query";
 import { fetchFiles } from "../../utils/api";
 import FilteredFiles from "../../features/Files/FilteredFiles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   filterFiles,
   sortByCreationDate,
@@ -24,10 +24,12 @@ function Files() {
     queryFn: fetchFiles,
   });
 
+  console.log(files);
+
   const initialFilterState = {
     filterText: "",
     minPrice: 0,
-    maxPrice: 20000000,
+    maxPrice: 1000000,
     statuses: { active: true, underOffer: true, inactive: true, sold: true },
   };
 
@@ -41,6 +43,17 @@ function Files() {
     initialFilterState.maxPrice
   );
   const [statuses, setStatuses] = useState(initialFilterState.statuses);
+
+  useEffect(() => {
+    if (isFetched && files) {
+      const salePrices = files.map((file) => file.salePrice);
+      const minPriceCalculated = Math.min(...salePrices);
+      const maxPriceCalculated = Math.max(...salePrices);
+
+      setMinPrice(minPriceCalculated);
+      setMaxPrice(maxPriceCalculated);
+    }
+  }, [isFetched, files]);
 
   const handleClearFilters = () => {
     setFilterText(initialFilterState.filterText);
