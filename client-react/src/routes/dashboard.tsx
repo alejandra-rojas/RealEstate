@@ -32,9 +32,7 @@ function Dashboard() {
           <Buttons />
         </div>
 
-        <section className="bg-gray-100 py-4 px-6 rounded-md border border-gray-300">
-          <UpcomingEvents files={files} />
-        </section>
+        <UpcomingEvents files={files} />
 
         <div className="flex gap-3">
           <OngoingTransactions files={files} />
