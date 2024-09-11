@@ -100,7 +100,7 @@ function SingleFile() {
             </div>
 
             <div className="flex flex-col w-2/3 gap-4">
-              <Documentation />
+              <Documentation hasBuyer={!!file.buyer} />
               <div className="flex gap-4">
                 <Notes notes={file.notes} id={id} />
                 {file.events && file.events.length > 0 && (

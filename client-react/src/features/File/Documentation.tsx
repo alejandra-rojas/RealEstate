@@ -45,23 +45,27 @@ const CheckboxIconSimple = ({ width = 12, height = 11 }) => (
   </svg>
 );
 
-export default function Documentation() {
+interface DocumentationProps {
+  hasBuyer: boolean;
+}
+
+export default function Documentation({ hasBuyer }: DocumentationProps) {
   return (
-    <article className="mb-6">
+    <article className="mb-1">
       <div className="flex justify-between pb-1 border-b border-gray-400">
         <h3 className="font-rmono uppercase text-sm text-almostblack ">
           / Digital dOCUMENTATION
         </h3>
       </div>
-      <ul>
-        <li className="border-b border-dotted border-gray-400 flex items-start">
-          <div className="pt-1 flex items-center gap-2 min-w-[15%]  h-full">
+      <ul className="flex pl-3 mb-3 border-b border-dotted border-gray-400 ">
+        <li className="w-1/3 flex flex-col border-l border-dotted border-gray-400 pl-3">
+          <div className="pt-1 flex items-center gap-2 ">
             <SquareIcon />
             <h5 className="font-rmono uppercase text-sm text-almostblack ">
               Property:
             </h5>
           </div>
-          <ul className="py-2 pl-3 flex flex-wrap gap-4 gap-y-2 items-center font-rmono text-xs uppercase border-l border-dotted border-gray-400">
+          <ul className="py-2 flex flex-col gap-4 gap-y-2 font-rmono text-xs uppercase ">
             <li className="flex items-center gap-1 ">
               <CheckboxIcon />
               <p>Property deed</p>
@@ -84,14 +88,14 @@ export default function Documentation() {
             </li>
           </ul>
         </li>
-        <li className="border-b border-dotted border-gray-400 flex items-start">
-          <div className="pt-1 flex items-center gap-2 min-w-[15%]  h-full">
+        <li className="w-1/3 flex flex-col border-l border-dotted border-gray-400 pl-3">
+          <div className="pt-1 flex items-center gap-2 ">
             <SquareIcon />
             <h5 className="font-rmono uppercase text-sm text-almostblack ">
               Seller:
             </h5>
           </div>
-          <ul className="py-2 pl-3 flex flex-wrap gap-4 gap-y-2 items-center font-rmono text-xs uppercase border-l border-dotted border-gray-400">
+          <ul className="py-2 flex flex-col gap-4 gap-y-2  font-rmono text-xs uppercase ">
             <li className="flex items-center gap-1 ">
               <CheckboxIcon />
               <p>id with photo&signature</p>
@@ -118,40 +122,42 @@ export default function Documentation() {
             </li>
           </ul>
         </li>
-        <li className="border-b border-dotted border-gray-400 flex items-start">
-          <div className="pt-1 flex items-center gap-2 min-w-[15%]  h-full">
-            <SquareIcon />
-            <h5 className="font-rmono uppercase text-sm text-almostblack ">
-              Buyer:
-            </h5>
-          </div>
-          <ul className="py-2 pl-3 flex flex-wrap gap-4 gap-y-2 items-center font-rmono text-xs uppercase border-l border-dotted border-gray-400">
-            <li className="flex items-center gap-1 ">
-              <CheckboxIcon />
-              <p>id with photo&signature</p>
-            </li>
-            <li className="flex items-center gap-1">
-              <CheckboxIconSimple />
-              <p>Marriage certificate</p>
-            </li>
-            <li className="flex items-center gap-1 ">
-              <CheckboxIconSimple />
-              <p>Birth certificate</p>
-            </li>
-            <li className="flex items-center gap-1 ">
-              <CheckboxIconSimple />
-              <p>CURP</p>
-            </li>
-            <li className="flex items-center gap-1 ">
-              <CheckboxIconSimple />
-              <p>RFC</p>
-            </li>
-            <li className="flex items-center gap-1 ">
-              <CheckboxIconSimple />
-              <p>Proof of address</p>
-            </li>
-          </ul>
-        </li>
+        {hasBuyer && (
+          <li className="w-1/3 flex flex-col border-l border-dotted border-gray-400 pl-3">
+            <div className="pt-1 flex items-center gap-2  ">
+              <SquareIcon />
+              <h5 className="font-rmono uppercase text-sm text-almostblack ">
+                Buyer:
+              </h5>
+            </div>
+            <ul className="py-2 flex flex-col gap-4 gap-y-2 font-rmono text-xs uppercase">
+              <li className="flex items-center gap-1 ">
+                <CheckboxIcon />
+                <p>id with photo&signature</p>
+              </li>
+              <li className="flex items-center gap-1">
+                <CheckboxIconSimple />
+                <p>Marriage certificate</p>
+              </li>
+              <li className="flex items-center gap-1 ">
+                <CheckboxIconSimple />
+                <p>Birth certificate</p>
+              </li>
+              <li className="flex items-center gap-1 ">
+                <CheckboxIconSimple />
+                <p>CURP</p>
+              </li>
+              <li className="flex items-center gap-1 ">
+                <CheckboxIconSimple />
+                <p>RFC</p>
+              </li>
+              <li className="flex items-center gap-1 ">
+                <CheckboxIconSimple />
+                <p>Proof of address</p>
+              </li>
+            </ul>
+          </li>
+        )}
       </ul>
     </article>
   );
