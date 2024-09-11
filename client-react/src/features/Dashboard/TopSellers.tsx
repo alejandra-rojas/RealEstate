@@ -4,8 +4,10 @@ function TopSellers({ files }: { files: File[] }) {
   const topSellers = processAgentCommissions(files);
 
   return (
-    <div className="font-rmono flex flex-col gap-4 w-1/2">
-      <h2 className="text-xl border-b border-[#CFCFCF]">Top Agents</h2>
+    <article className="font-rmono flex flex-col gap-4 w-1/2">
+      <h3 className="font-rmono uppercase text-sm text-almostblack pb-1  border-b border-gray-400">
+        / Top agents
+      </h3>
       {topSellers.length > 0 ? (
         <ul className="flex flex-col gap-4">
           {topSellers.map((agent) => (
@@ -25,7 +27,7 @@ function TopSellers({ files }: { files: File[] }) {
       ) : (
         <p>No sales data available.</p>
       )}
-    </div>
+    </article>
   );
 }
 

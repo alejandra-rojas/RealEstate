@@ -8,10 +8,10 @@ function OngoingTransactions({ files }: { files: File[] }) {
 
   console.log(underOfferFiles);
   return (
-    <section className="bg-[#e7e7e7] py-4 px-6 rounded-xl flex flex-col gap-4 w-1/2">
-      <h2 className="font-rmono text-xl border-b border-[#CFCFCF]">
-        Ongoing Transactions
-      </h2>
+    <article className="w-1/2 bg-[#eeeeee] border border-gray-200 p-8 rounded-sm flex flex-col gap-4 ">
+      <h3 className="font-rmono uppercase text-sm text-almostblack pb-1  border-b border-gray-400">
+        / Ongoing transactions
+      </h3>
       {underOfferFiles.length > 0 ? (
         <ul className="flex flex-col gap-3">
           {underOfferFiles.map((file) => (
@@ -44,7 +44,7 @@ function OngoingTransactions({ files }: { files: File[] }) {
       ) : (
         <p>No ongoing transactions under offer.</p>
       )}
-    </section>
+    </article>
   );
 }
 

@@ -8,8 +8,10 @@ function BusinessPerformance({ files }: { files: File[] }) {
   }, 0);
 
   return (
-    <div className="font-rmono flex flex-col gap-4 w-1/2">
-      <h2 className="text-xl border-b border-[#CFCFCF]">Business Overview</h2>
+    <article className="font-rmono flex flex-col gap-4 w-1/2">
+      <h3 className="font-rmono uppercase text-sm text-almostblack pb-1  border-b border-gray-400">
+        / Business Overview
+      </h3>
       <div className="flex flex-col gap-2">
         <div className="flex gap-2 items-end">
           <p className="text-3xl leading-none">
@@ -26,7 +28,7 @@ function BusinessPerformance({ files }: { files: File[] }) {
           <h3 className="">Booked Properties</h3>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 

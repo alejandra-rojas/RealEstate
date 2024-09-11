@@ -24,14 +24,14 @@ function RecentNotes({ files }: { files: File[] }) {
   const latestNotes = sortedNotes.slice(0, 5);
 
   return (
-    <section className="bg-[#eeeeee] border border-gray-200 p-8 rounded-sm flex flex-col gap-4 ">
+    <article className="w-1/2 bg-[#eeeeee] border border-gray-200 p-8 rounded-sm flex flex-col gap-4 ">
       <h3 className="font-rmono uppercase text-sm text-almostblack pb-1  border-b border-gray-400">
         / Latest notes on files
       </h3>
 
       {latestNotes.length > 0 ? (
         latestNotes.map((note) => (
-          <ul className="w-3/4">
+          <ul className="w-[85%]">
             <Link to={`/files/${note.propertyId}`}>
               <li key={note.noteId} className="flex flex-col gap-1">
                 <p className="leading-tight text-md ">{note.description}</p>
@@ -49,7 +49,7 @@ function RecentNotes({ files }: { files: File[] }) {
       ) : (
         <p>No recent notes available</p>
       )}
-    </section>
+    </article>
   );
 }
 

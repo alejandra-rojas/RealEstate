@@ -31,17 +31,15 @@ function Dashboard() {
           </h2> */}
           <Buttons />
         </div>
-
         <UpcomingEvents files={files} />
-
-        <div className="flex gap-3">
+        <div className="flex gap-4">
           <OngoingTransactions files={files} />
           <RecentNotes files={files} />
         </div>
-        <section className="bg-[#e7e7e7] py-8 px-9 rounded-xl flex gap-8">
+        <div className="bg-[#eeeeee] border border-gray-200 p-8 rounded-sm flex">
           <BusinessPerformance files={files} />
           <TopSellers files={files} />
-        </section>
+        </div>
       </section>
     )
   );
