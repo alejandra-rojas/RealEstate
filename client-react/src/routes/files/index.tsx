@@ -28,7 +28,7 @@ function Files() {
 
   const initialFilterState = {
     filterText: "",
-    minPrice: 0,
+    minPrice: 320000,
     maxPrice: 1000000,
     statuses: { active: true, underOffer: true, inactive: true, sold: true },
   };
