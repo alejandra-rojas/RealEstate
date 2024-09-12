@@ -10,7 +10,9 @@ public class Property
 
     public int SalePrice { get; set; }
     public double AgreedCommission { get; set; }
-    public Status Status { get; set; }
+    public Status Status { get; set; } = Status.Inactive;
+
+    public SaleStatus SaleStatus { get; set; } = SaleStatus.W4Seller;
 
     public int PropertyDetailsId { get; set; }
     public int PropertyLiasonAgentId { get; set; }
@@ -33,3 +35,12 @@ public enum Status
     Inactive
 }
 
+public enum SaleStatus
+{
+
+    W4Seller,
+    W4Buyer,
+    W4ThirdParty,
+    MettingScheduled,
+
+}

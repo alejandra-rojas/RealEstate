@@ -71,6 +71,14 @@ namespace webApi.Controllers
                 : NotFound($"Property with Id '{id}' was not found");
         }
 
+        [HttpPut("files/{id}/salestatus")]
+        public ActionResult<Property> UpdateSaleStatus(int id, SaleStatusUpdateRequest request)
+        {
+            return _repo.UpdateSaleStatus(id, request.Status) is Property property
+                ? Ok(property)
+                : NotFound($"Property with Id '{id}' was not found");
+        }
+
 
     }
 }
