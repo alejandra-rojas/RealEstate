@@ -27,27 +27,7 @@ function Buttons() {
           </button>
         </Link>
 
-        {/* <Link to={`/files`}>
-          <button className="inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative dark:text-gray-400 dark:hover:text-gray-200 hover:dark:bg-gray-800">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z"
-              />
-            </svg>
-            Files
-          </button>
-        </Link> */}
-
-        <button className="inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative dark:text-gray-400 dark:hover:text-gray-200 hover:dark:bg-gray-800">
+        <button className="inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-gray-500 focus:relative dark:text-gray-400 ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -65,7 +45,7 @@ function Buttons() {
           Agents
         </button>
 
-        <button className="inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative dark:text-gray-400 dark:hover:text-gray-200 hover:dark:bg-gray-800">
+        <button className="inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-gray-500 focus:relative dark:text-gray-400 ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
