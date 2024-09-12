@@ -225,6 +225,61 @@ public static class DbSeeder
                         PropertyId = 11,
                         Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop11.jpg"
                     },
+                    new PropertyDetails
+                    {
+                        PropertyName = "Sunset Bay Villa",
+                        Address = "112 Sunset Bay Dr, Key West, FL",
+                        LandSizeInSquareMeters = 650,
+                        ConstructionSizeInSquareMeters = 400,
+                        NumberOfRooms = 6,
+                        Description = "Luxury villa with oceanfront views and private beach access.",
+                        PropertyId = 12,
+                        Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop122.jpg"
+                    },
+                    new PropertyDetails
+                    {
+                        PropertyName = "Green Acres Ranch",
+                        Address = "800 Country Road, Jackson, WY",
+                        LandSizeInSquareMeters = 2000,
+                        ConstructionSizeInSquareMeters = 350,
+                        NumberOfRooms = 8,
+                        Description = "Sprawling ranch with mountain views and equestrian facilities.",
+                        PropertyId = 13,
+                        Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop133.jpg"
+                    },
+                    new PropertyDetails
+                    {
+                        PropertyName = "Urban Edge Townhouse",
+                        Address = "1234 Maple St, Portland, OR",
+                        LandSizeInSquareMeters = 180,
+                        ConstructionSizeInSquareMeters = 120,
+                        NumberOfRooms = 3,
+                        Description = "Modern townhouse in the heart of Portland's trendy district.",
+                        PropertyId = 14,
+                        Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop14.jpg"
+                    },
+                    new PropertyDetails
+                    {
+                        PropertyName = "Seaside Cottage",
+                        Address = "222 Ocean Ave, Santa Monica, CA",
+                        LandSizeInSquareMeters = 320,
+                        ConstructionSizeInSquareMeters = 150,
+                        NumberOfRooms = 4,
+                        Description = "Charming cottage steps away from the beach.",
+                        PropertyId = 15,
+                        Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop15.jpg"
+                    },
+                    new PropertyDetails
+                    {
+                        PropertyName = "Highland Meadows Estate",
+                        Address = "567 Mountain View Rd, Boulder, CO",
+                        LandSizeInSquareMeters = 1000,
+                        ConstructionSizeInSquareMeters = 500,
+                        NumberOfRooms = 7,
+                        Description = "Expansive estate with panoramic views of the Rocky Mountains.",
+                        PropertyId = 16,
+                        Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/prop16.jpg"
+                    }
 
                 };
 
@@ -343,6 +398,54 @@ public static class DbSeeder
                     AgreedCommission = 3.5,
                     Status = Status.Active,
                 },
+                new Property
+        {
+            PropertyDetailsId = 12,
+            SellerId = 1,
+            PropertyLiasonAgentId = 4,
+            SalePrice = 900000,
+            AgreedCommission = 3.5,
+            Status = Status.Sold,
+            BuyerId = 1
+        },
+        new Property
+        {
+            PropertyDetailsId = 13,
+            SellerId = 2,
+            PropertyLiasonAgentId = 4,
+            SalePrice = 1850000,
+            AgreedCommission = 4,
+            Status = Status.Sold,
+            BuyerId = 2
+        },
+        new Property
+        {
+            PropertyDetailsId = 14,
+            SellerId = 3,
+            PropertyLiasonAgentId = 2,
+            SalePrice = 850000,
+            AgreedCommission = 3.5,
+            Status = Status.Sold,
+            BuyerId = 3
+        },
+        new Property
+        {
+            PropertyDetailsId = 15,
+            SellerId = 1,
+            PropertyLiasonAgentId = 3,
+            SalePrice = 1200000,
+            AgreedCommission = 3,
+            Status = Status.Active,
+        },
+        new Property
+        {
+            PropertyDetailsId = 16,
+            SellerId = 2,
+            PropertyLiasonAgentId = 1,
+            SalePrice = 2000000,
+            AgreedCommission = 3.5,
+            Status = Status.Active,
+        }
             };
             context.AddRange(propertiesFiles);
             context.SaveChanges();
@@ -429,7 +532,81 @@ public static class DbSeeder
                         Date = new DateTime(2024, 05, 03),
                         Description = "Payment of the commission",
                         PropertyId = 7
-                    },
+                    },new Event
+        {
+            Date = new DateTime(2024, 07, 15),
+            Description = "Initial meeting with the seller to discuss property listing.",
+            PropertyId = 12
+        },
+        new Event
+        {
+            Date = new DateTime(2024, 09, 01),
+            Description = "Buyer placed an offer.",
+            PropertyId = 12
+        },
+        new Event
+        {
+            Date = new DateTime(2024, 06, 12),
+            Description = "Property inspection completed.",
+            PropertyId = 13
+        },
+        new Event
+        {
+            Date = new DateTime(2024, 07, 10),
+            Description = "Buyer submitted deposit.",
+            PropertyId = 13
+        },
+        new Event
+        {
+            Date = new DateTime(2024, 08, 01),
+            Description = "Handover of keys and final payment.",
+            PropertyId = 13
+        },
+
+        new Event
+        {
+            Date = new DateTime(2024, 05, 10),
+            Description = "Initial property tour with buyer.",
+            PropertyId = 14
+        },
+        new Event
+        {
+            Date = new DateTime(2024, 06, 20),
+            Description = "Purchase agreement signed.",
+            PropertyId = 14
+        },
+        new Event
+        {
+            Date = new DateTime(2024, 08, 05),
+            Description = "Sale finalized and closed.",
+            PropertyId = 14
+        },
+
+        new Event
+        {
+            Date = new DateTime(2024, 09, 05),
+            Description = "First open house held.",
+            PropertyId = 15
+        },
+        new Event
+        {
+            Date = new DateTime(2024, 09, 20),
+            Description = "Second open house scheduled.",
+            PropertyId = 15
+        },
+
+        new Event
+        {
+            Date = new DateTime(2024, 09, 10),
+            Description = "Seller negotiating offer.",
+            PropertyId = 16
+        },
+        new Event
+        {
+            Date = new DateTime(2024, 09, 25),
+            Description = "Buyer requested second tour.",
+            PropertyId = 16
+        }
 
 
                 };
@@ -512,7 +689,42 @@ public static class DbSeeder
                 Description = "Seller agreed to repaint the exterior before closing. Estimated completion in two weeks.",
                 CreatedAt = DateTime.Now.AddDays(-1),
                 Author = "Laura White"
-            }
+            },
+            new Note
+        {
+            PropertyId = 12,
+            Description = "Potential buyer expressed interest after second tour.",
+            CreatedAt = DateTime.Now.AddDays(-14),
+            Author = "Betty Maldonado"
+        },
+        new Note
+        {
+            PropertyId = 13,
+            Description = "Negotiations on-going, buyer asked for price reduction.",
+            CreatedAt = DateTime.Now.AddDays(-20),
+            Author = "Betty Maldonado"
+        },
+        new Note
+        {
+            PropertyId = 14,
+            Description = "Buyer financing approved, sale expected to close soon.",
+            CreatedAt = DateTime.Now.AddDays(-10),
+            Author = "Sophia Martinez"
+        },
+        new Note
+        {
+            PropertyId = 15,
+            Description = "Seller agreed to repaint exterior before listing.",
+            CreatedAt = DateTime.Now.AddDays(-5),
+            Author = "Ethan Brooks"
+        },
+        new Note
+        {
+            PropertyId = 16,
+            Description = "Buyer very interested but hesitating on price.",
+            CreatedAt = DateTime.Now.AddDays(-3),
+            Author = "James Clark"
+        }
         };
 
             context.AddRange(notes);
