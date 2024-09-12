@@ -13,15 +13,15 @@ function BusinessPerformance({ files }: { files: File[] }) {
         / Monthly Overview
       </h3>
       <div className="uppercase text-sm flex flex-col px-2 ">
-        <div className="flex gap-2 items-end font-semibold">
+        <div className="flex gap-2 items-end font-semibold justify-between">
           <h4 className="">Commission: </h4>
           <p>${totalCommissionEarned.toLocaleString()}</p>
         </div>
-        <div className="flex gap-2 items-end">
+        <div className="flex gap-2 items-end justify-between">
           <h4 className="">Transactions:</h4>
           <p>{soldProperties.length}</p>
         </div>
-        <div className="flex gap-2 items-end">
+        <div className="flex gap-2 items-end justify-between">
           <h4 className="">Booked Properties:</h4>
           <p>{files.length}</p>
         </div>

@@ -16,10 +16,10 @@ function TopSellers({ files }: { files: File[] }) {
                 key={agent.agentId}
                 className={`flex items-center gap-3 ${index === 0 ? "font-semibold" : ""}`}
               >
-                <div className="flex items-center gap-3">
-                  {agent.agentName.split(" ")[0]}:$
-                  {agent.totalCommission.toLocaleString()}
-                </div>
+                <p className="w-1/3">{agent.agentName.split(" ")[0]}:</p>
+                <p className="w-1/2">
+                  ${agent.totalCommission.toLocaleString()}
+                </p>
               </li>
             ))}
           </ul>
