@@ -12,4 +12,5 @@ public interface IPortfolioRepository
     Property Create(AddFileRequest request);
     Note CreateNote(int id, AddNoteRequest request);
     Property UpdateStatus(int id, int newStatus);
+    Property UpdateSaleStatus(int id, int newStatus);
 }

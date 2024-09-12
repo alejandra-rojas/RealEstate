@@ -23,3 +23,9 @@ public class StatusUpdateRequest
 
 }
 
+public class SaleStatusUpdateRequest
+{
+    public required int Status { get; set; }
+
+}
+

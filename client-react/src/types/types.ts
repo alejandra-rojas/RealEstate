@@ -3,6 +3,7 @@ export interface Asset {
   propertyId: number;
   salePrice: number;
   status: Status;
+  saleStatus: SaleStatus;
   propertyName: string;
   address: string;
   landSizeInSquareMeters: number;
@@ -17,6 +18,13 @@ export enum Status {
   UnderOffer,
   Sold,
   Inactive,
+}
+
+export enum SaleStatus {
+  W4Seller,
+  W4Buyer,
+  W4ThirdParty,
+  MettingScheduled,
 }
 
 interface PropertyDetails {
@@ -64,6 +72,7 @@ export interface File {
   salePrice: number;
   agreedCommission: number;
   status: number;
+  saleStatus: number;
   propertyDetailsId: number;
   propertyLiasonAgentId: number;
   sellerId: number;

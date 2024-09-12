@@ -53,6 +53,7 @@ export default function StatusEdit({ id, status }: StatusEditProps) {
             <select
               value={newStatus || ""}
               onChange={(e) => setNewStatus(e.target.value)}
+              className="text-xs"
             >
               {Object.keys(Status)
                 .filter((key) => isNaN(Number(key)))

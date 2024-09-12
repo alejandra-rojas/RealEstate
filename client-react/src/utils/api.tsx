@@ -97,6 +97,31 @@ export async function updateStatus(
   }
 }
 
+export async function updateSaleStatus(
+  id: string,
+  newStatus: number
+): Promise<File> {
+  try {
+    const response = await fetch(`${apiUrl}/files/${id}/salestatus`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ status: newStatus }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to update status");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error updating status:", error);
+    throw error;
+  }
+}
+
 export async function addNote(id: string, newNote: string): Promise<File> {
   try {
     const response = await fetch(`${apiUrl}/files/${id}/notes`, {
