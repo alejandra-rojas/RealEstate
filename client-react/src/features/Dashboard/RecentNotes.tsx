@@ -37,13 +37,13 @@ function RecentNotes({ files }: { files: File[] }) {
                 key={note.noteId}
                 className="flex flex-col gap-1 pb-3 border-b border-dotted border-gray-400 "
               >
-                <p className="w-[85%] leading-tight text-md font-normal">
+                <p className="w-[85%] leading-snug text-sm font-medium pt-1">
                   {note.description}
                 </p>
-                <div className="flex gap-1  font-normal font-rmono text-xs">
-                  <p className="uppercase">{note.propertyName} -</p>
+                <div className="flex gap-1  font-normal font-rmono text-[0.7rem] uppercase">
                   <p>{new Date(note.createdAt).toLocaleString()}</p>
-                  <p className="">{note.author.split(" ")[0]}</p>
+                  <p className="">{note.author.split(" ")[0]} </p>
+                  <p className="">-{note.propertyName}</p>
                 </div>
               </li>
             </Link>
