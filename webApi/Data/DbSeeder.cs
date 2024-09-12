@@ -293,7 +293,7 @@ public static class DbSeeder
                     PropertyLiasonAgentId = 2,
                     SalePrice = 320000,
                     AgreedCommission = 3,
-                    Status = Status.Sold,
+                    Status = Status.UnderOffer,
                     BuyerId = 3
                 },
                 new Property
@@ -303,7 +303,7 @@ public static class DbSeeder
                     PropertyLiasonAgentId = 3,
                     SalePrice = 570000,
                     AgreedCommission = 3,
-                    Status = Status.Sold,
+                    Status = Status.UnderOffer,
                     BuyerId = 1
                 },
                 new Property
