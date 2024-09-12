@@ -131,7 +131,7 @@ function Navigation() {
           <div>
             <SignedOut>
               <SignInButton forceRedirectUrl="/dashboard">
-                <button className="uppercase font-rmono bg-bggray hover:bg-accent py-1 px-2.5 text-almostblack">
+                <button className="uppercase font-rmono bg-bggray hover:bg-blue-200 py-1 px-2.5 text-almostblack">
                   Admin
                 </button>
               </SignInButton>
