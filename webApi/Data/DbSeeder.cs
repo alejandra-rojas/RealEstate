@@ -310,6 +310,7 @@ public static class DbSeeder
                     SalePrice = 750000,
                     AgreedCommission = 3,
                     Status = Status.UnderOffer,
+                    SaleStatus = SaleStatus.W4Buyer,
                     BuyerId = 2
                 },
                 new Property
@@ -339,6 +340,7 @@ public static class DbSeeder
                     SalePrice = 850000,
                     AgreedCommission = 4,
                     Status = Status.UnderOffer,
+                    SaleStatus = SaleStatus.MettingScheduled,
                     BuyerId = 2
                 },
                 new Property
@@ -349,6 +351,7 @@ public static class DbSeeder
                     SalePrice = 320000,
                     AgreedCommission = 3,
                     Status = Status.UnderOffer,
+                    SaleStatus = SaleStatus.W4Buyer,
                     BuyerId = 3
                 },
                 new Property
@@ -359,6 +362,7 @@ public static class DbSeeder
                     SalePrice = 570000,
                     AgreedCommission = 3,
                     Status = Status.UnderOffer,
+                    SaleStatus = SaleStatus.W4ThirdParty,
                     BuyerId = 1
                 },
                 new Property
@@ -378,6 +382,7 @@ public static class DbSeeder
                     SalePrice = 420000,
                     AgreedCommission = 3.5,
                     Status = Status.UnderOffer,
+                    SaleStatus = SaleStatus.W4Seller,
                     BuyerId = 3
                 },
                 new Property
@@ -481,19 +486,19 @@ public static class DbSeeder
                     },
                     new Event
                     {
-                        Date = new DateTime(2024, 09, 23),
+                        Date = new DateTime(2024, 09, 16),
                         Description = "Notary signing - 3:00pm",
                         PropertyId = 2
                     },
                     new Event
                     {
-                        Date = new DateTime(2024, 09, 24),
+                        Date = new DateTime(2024, 09, 17),
                         Description = "Handover of the house",
                         PropertyId = 2
                     },
                     new Event
                     {
-                        Date = new DateTime(2024, 10, 23),
+                        Date = new DateTime(2024, 09, 20),
                         Description = "Payment of the commission",
                         PropertyId = 3
                     },
