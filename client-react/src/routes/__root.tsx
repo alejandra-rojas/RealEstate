@@ -99,18 +99,18 @@ function Navigation() {
                   </li>
 
                   <li
-                    className={`uppercase font-rmono font-normal bg-gray-200 hover:bg-accent py-1 px-2.5 ${
-                      isPortfolio ? "bg-accent" : ""
-                    } text-gray-400`}
+                    className={`uppercase font-rmono font-normal bg-gray-200 hover:bg-blue-200 py-1 px-2.5 ${
+                      isPortfolio ? "bg-blue-200" : ""
+                    } text-gray-400 hover:text-gray-900`}
                   >
                     <Link to="/files" activeProps={activeAdminProps}>
                       Portfolio
                     </Link>
                   </li>
                   <li
-                    className={`uppercase font-rmono font-normal bg-gray-200 hover:bg-accent py-1 px-2.5 ${
-                      isDashboard ? "bg-accent" : ""
-                    } text-gray-400`}
+                    className={`uppercase font-rmono font-normal bg-gray-200 hover:bg-blue-200 py-1 px-2.5 ${
+                      isDashboard ? "bg-blue-200" : ""
+                    } text-gray-400 hover:text-gray-900`}
                   >
                     <Link to="/dashboard" activeProps={activeAdminProps}>
                       Dashboard
