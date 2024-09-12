@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Asset } from "../types/types";
 import { fetchPublicPortfolio } from "../utils/api";
+import SkeletonPortfolio from "../features/PublicWeb/skeleton/Portfolio";
 
 export const Route = createFileRoute("/")({
   component: Homepage,
@@ -11,6 +12,7 @@ function Homepage() {
   const {
     error,
     data: portfolio,
+    isLoading,
     isFetched,
   } = useQuery<Asset[]>({
     queryKey: ["portfolio"],
@@ -21,7 +23,7 @@ function Homepage() {
 
   return (
     <div className="flex flex-col gap-4">
-      <section className="relative">
+      <section className="relative shadow-sm">
         <img
           className="w-full h-[450px] object-cover"
           src="src/assets/hero1.jpg"
@@ -37,6 +39,7 @@ function Homepage() {
           </h5>
         </div>
       </section>
+      {isLoading && <SkeletonPortfolio />}
       {isFetched && <FilterablePortfolio portfolio={portfolio ?? []} />}
     </div>
   );
@@ -59,7 +62,7 @@ function FilterablePortfolio({ portfolio }: { portfolio: Asset[] }) {
 
 function PropertyCard({ property }: { property: Asset }) {
   return (
-    <article className="w-[24%] flex flex-col border-8 border-white hover:border-yellow-100 bg-white group">
+    <article className="w-[24%] flex flex-col border-8 border-white hover:border-yellow-100 bg-white group shadow-sm">
       <Link to={`/properties/${property.propertyId}`}>
         <img
           src={property.photo}
