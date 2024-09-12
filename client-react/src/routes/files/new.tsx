@@ -12,7 +12,7 @@ function NewPropertyPage() {
       <div className="bg-[#eeeeee] border border-gray-200 py-6 px-6">
         <div className="font-rmono uppercase text-sm text-almostblack flex justify-between pb-1 mb-4 border-b border-almostblack">
           <h2>/ File a new property </h2>
-          <Link to={`/dashboard`}>
+          <Link to={`/files`}>
             <button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

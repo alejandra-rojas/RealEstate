@@ -45,10 +45,10 @@ function Navigation() {
             <ul className="flex gap-4">
               <li>
                 <Link to="/" activeProps={activeProps}>
-                  Portfolio
+                  Properties
                 </Link>
               </li>
-              <li className="cursor-default">About</li>
+              <li className="cursor-default">Our sevices</li>
               <li className="cursor-default">Contact</li>
             </ul>
           </nav>
@@ -77,7 +77,7 @@ function Navigation() {
 
                   <li className="uppercase font-rmono font-normal bg-gray-200 hover:bg-accent py-1 px-2.5 text-gray-400">
                     <Link to="/files" activeProps={activeAdminProps}>
-                      Files
+                      Portfolio
                     </Link>
                   </li>
                   <li className="uppercase font-rmono font-normal bg-gray-200 hover:bg-accent py-1 px-2.5 text-gray-400">
