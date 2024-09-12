@@ -1,13 +1,19 @@
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
-import { Link, Outlet, createRootRoute } from "@tanstack/react-router";
+import {
+  Link,
+  Outlet,
+  createRootRoute,
+  useRouter,
+} from "@tanstack/react-router";
 import {
   SignedIn,
   SignedOut,
   SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
+import { useEffect, useState } from "react";
 
 const activeProps = {
   style: {
@@ -31,6 +37,23 @@ export const Route = createRootRoute({
 });
 
 function Navigation() {
+  const router = useRouter();
+
+  const [currentPath, setCurrentPath] = useState(
+    router.state.location.pathname
+  );
+
+  useEffect(() => {
+    const unsubscribe = router.subscribe("onResolved", ({ toLocation }) => {
+      setCurrentPath(toLocation.pathname);
+    });
+
+    return () => unsubscribe();
+  }, [router]);
+
+  const isDashboard = currentPath === "/dashboard";
+  const isPortfolio = currentPath === "/files";
+
   return (
     <header className="pb-6">
       <div className="flex justify-between">
@@ -75,12 +98,20 @@ function Navigation() {
                     </svg>
                   </li>
 
-                  <li className="uppercase font-rmono font-normal bg-gray-200 hover:bg-accent py-1 px-2.5 text-gray-400">
+                  <li
+                    className={`uppercase font-rmono font-normal bg-gray-200 hover:bg-accent py-1 px-2.5 ${
+                      isPortfolio ? "bg-accent" : ""
+                    } text-gray-400`}
+                  >
                     <Link to="/files" activeProps={activeAdminProps}>
                       Portfolio
                     </Link>
                   </li>
-                  <li className="uppercase font-rmono font-normal bg-gray-200 hover:bg-accent py-1 px-2.5 text-gray-400">
+                  <li
+                    className={`uppercase font-rmono font-normal bg-gray-200 hover:bg-accent py-1 px-2.5 ${
+                      isDashboard ? "bg-accent" : ""
+                    } text-gray-400`}
+                  >
                     <Link to="/dashboard" activeProps={activeAdminProps}>
                       Dashboard
                     </Link>
