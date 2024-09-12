@@ -2,6 +2,10 @@ import { File } from "../../types/types";
 import { Link } from "@tanstack/react-router";
 
 function UpcomingEvents({ files }: { files: File[] }) {
+  const today = new Date();
+  const nextWeek = new Date();
+  nextWeek.setDate(today.getDate() + 7);
+
   const upcomingEvents = files
     .flatMap((file) =>
       file.events.map((event) => ({
@@ -9,14 +13,18 @@ function UpcomingEvents({ files }: { files: File[] }) {
         propertyName: file.propertyDetails.propertyName,
       }))
     )
-    .filter((event) => new Date(event.date) > new Date());
+    .filter((event) => {
+      const eventDate = new Date(event.date);
+      return eventDate >= today && eventDate <= nextWeek;
+    });
 
   console.log(upcomingEvents);
   return (
     <article className="flex flex-col bg-yellow-100 w-[60%]  border border-yellow-500">
       <div className="p-2 font-rmono uppercase text-sm text-almostblack flex justify-between pb-1 border-b border-yellow-500">
-        <h3 className="text-yellow-500">/ Upcomming appointments</h3>
-        {/* <button className="uppercase cursor-pointer underline hover:font-medium"></button> */}
+        <h3 className="text-yellow-500">
+          / Your Appointments in the Next 7 Days
+        </h3>
       </div>
       <ul className="flex flex-wrap pl-1">
         {upcomingEvents.length > 0 ? (
