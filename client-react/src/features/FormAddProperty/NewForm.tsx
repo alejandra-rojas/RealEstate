@@ -96,6 +96,7 @@ function NewForm() {
               })}
               type="number"
               name="salePrice"
+              step="50000"
               id="salePrice"
               className={`p-2.5 w-full border ${
                 errors.salePrice ? "border-red-500" : "border-[#d9d9d9]"
@@ -144,6 +145,7 @@ function NewForm() {
               type="number"
               name="land"
               id="land"
+              step="100"
               className={`p-2.5 w-full ${
                 errors.propertyName ? "border-red-500" : "border-[#d9d9d9]"
               }`}
@@ -154,6 +156,7 @@ function NewForm() {
               type="number"
               name="construction"
               id="construction"
+              step="100"
               className={`p-2.5 w-full ${
                 errors.propertyName ? "border-red-500" : "border-[#d9d9d9]"
               }`}
