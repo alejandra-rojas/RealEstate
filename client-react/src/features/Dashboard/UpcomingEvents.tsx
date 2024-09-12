@@ -20,9 +20,9 @@ function UpcomingEvents({ files }: { files: File[] }) {
 
   console.log(upcomingEvents);
   return (
-    <article className="flex flex-col bg-yellow-100 w-[60%]  border border-yellow-500">
-      <div className="p-2 font-rmono uppercase text-sm text-almostblack flex justify-between pb-1 border-b border-yellow-500">
-        <h3 className="text-yellow-500">
+    <article className="flex flex-col bg-[#eeeeee] w-[60%]  border border-gray-200">
+      <div className="p-2 font-rmono uppercase text-sm text-almostblack flex justify-between pb-1 border-b border-gray-400">
+        <h3 className="text-almostblack">
           / Your Appointments in the Next 7 Days
         </h3>
       </div>
@@ -31,7 +31,7 @@ function UpcomingEvents({ files }: { files: File[] }) {
           upcomingEvents.map((event, index) => (
             <Link to={`/files/${event.propertyId}`} key={event.eventId}>
               <li
-                className={`flex flex-col p-4  ${index !== 0 ? "border-dotted border-l border-yellow-500 " : ""} `}
+                className={`flex flex-col p-4  ${index !== 0 ? "border-dotted border-l border-gray-400 " : ""} `}
               >
                 <p className="font-rmono uppercase text-sm font-semibold">
                   {new Date(event.date).toLocaleDateString(undefined, {
