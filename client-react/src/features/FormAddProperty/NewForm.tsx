@@ -174,42 +174,143 @@ function NewForm() {
           </Field>
         </div>
       </FieldSet>
-      <div className="flex justify-between pb-1 mb-4 border-b border-gray-400">
-        <h3 className="font-rmono uppercase text-sm text-almostblack ">
-          Seller details
-        </h3>
+      <div>
+        <div className="flex justify-between pb-1 mb-4 border-b border-gray-400">
+          <h3 className="font-rmono font-bold uppercase text-sm text-almostblack ">
+            Property documentation
+          </h3>
+        </div>
+        <div className="flex gap-2">
+          <Field label="property deed">
+            <input
+              type="file"
+              name="rooms"
+              id="rooms"
+              className={`py-1 w-full ${
+                errors.propertyName ? "border-red-500" : "border-[#d9d9d9]"
+              }`}
+            />
+          </Field>
+          <Field label="tax payment receipt">
+            <input
+              type="file"
+              name="rooms"
+              id="rooms"
+              className={`py-1 w-full ${
+                errors.propertyName ? "border-red-500" : "border-[#d9d9d9]"
+              }`}
+            />
+          </Field>
+          <Field label="no debt certificate">
+            <input
+              type="file"
+              name="rooms"
+              id="rooms"
+              className={`py-1 w-full ${
+                errors.propertyName ? "border-red-500" : "border-[#d9d9d9]"
+              }`}
+            />
+          </Field>
+          <Field label="construction declaration">
+            <input
+              type="file"
+              name="rooms"
+              id="rooms"
+              className={`py-1 w-full ${
+                errors.propertyName ? "border-red-500" : "border-[#d9d9d9]"
+              }`}
+            />
+          </Field>
+        </div>
       </div>
-      <div className="flex gap-4">
-        <Field label="full name">
-          <input
-            type="text"
-            name="land"
-            id="land"
-            className={`p-2.5 w-full ${
-              errors.propertyName ? "border-red-500" : "border-[#d9d9d9]"
-            }`}
-          />
-        </Field>
-        <Field label="contact number">
-          <input
-            type="text"
-            name="construction"
-            id="construction"
-            className={`p-2.5 w-full ${
-              errors.propertyName ? "border-red-500" : "border-[#d9d9d9]"
-            }`}
-          />
-        </Field>
-        <Field label="email address">
-          <input
-            type="text"
-            name="rooms"
-            id="rooms"
-            className={`p-2.5 w-full ${
-              errors.propertyName ? "border-red-500" : "border-[#d9d9d9]"
-            }`}
-          />
-        </Field>
+      <div className="mt-3">
+        <div className="flex justify-between pb-1 mb-4 border-b border-gray-400">
+          <h3 className="font-rmono font-bold uppercase text-sm text-almostblack ">
+            Seller details
+          </h3>
+        </div>
+        <div className="flex gap-4">
+          <Field label="full name">
+            <input
+              type="text"
+              name="land"
+              id="land"
+              className={`p-2.5 w-full ${
+                errors.propertyName ? "border-red-500" : "border-[#d9d9d9]"
+              }`}
+            />
+          </Field>
+          <Field label="contact number">
+            <input
+              type="text"
+              name="construction"
+              id="construction"
+              className={`p-2.5 w-full ${
+                errors.propertyName ? "border-red-500" : "border-[#d9d9d9]"
+              }`}
+            />
+          </Field>
+          <Field label="email address">
+            <input
+              type="text"
+              name="rooms"
+              id="rooms"
+              className={`p-2.5 w-full ${
+                errors.propertyName ? "border-red-500" : "border-[#d9d9d9]"
+              }`}
+            />
+          </Field>
+        </div>
+      </div>
+      <div className="">
+        <div className="flex justify-between pb-1 mb-4 border-b border-gray-400">
+          <h3 className="font-rmono font-bold uppercase text-sm text-almostblack ">
+            Seller documentation
+          </h3>
+        </div>
+        <div className="flex gap-4">
+          <Field label="id with photo&signature">
+            <input
+              type="file"
+              name="rooms"
+              id="rooms"
+              className={`py-1 w-full ${
+                errors.propertyName ? "border-red-500" : "border-[#d9d9d9]"
+              }`}
+            />
+          </Field>
+          <Field label="birth certificate">
+            <input
+              type="file"
+              name="rooms"
+              id="rooms"
+              className={`py-1 w-full ${
+                errors.propertyName ? "border-red-500" : "border-[#d9d9d9]"
+              }`}
+            />
+          </Field>
+
+          <Field label="rfc">
+            <input
+              type="file"
+              name="rooms"
+              id="rooms"
+              className={`py-1 w-full ${
+                errors.propertyName ? "border-red-500" : "border-[#d9d9d9]"
+              }`}
+            />
+          </Field>
+          <Field label="proof of address">
+            <input
+              type="file"
+              name="rooms"
+              id="rooms"
+              className={`py-1 w-full ${
+                errors.propertyName ? "border-red-500" : "border-[#d9d9d9]"
+              }`}
+            />
+          </Field>
+        </div>
       </div>
       <button className="w-fit font-rmono uppercase mx-auto py-2 px-8 cursor-pointer text-sm hover:text-white  bg-gray-100 border-gray-800 border hover:bg-gray-800">
         Add property
