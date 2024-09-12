@@ -6,15 +6,11 @@ function OngoingTransactions({ files }: { files: File[] }) {
     (file) => file.status === Status.UnderOffer
   );
 
-  const statusMessages = [
-    "Waiting for seller",
-    "Waiting for buyer",
-    "Waiting for third party",
-  ];
-
-  const getRandomMessage = () => {
-    const randomIndex = Math.floor(Math.random() * statusMessages.length);
-    return statusMessages[randomIndex];
+  const statusLabels: { [key: number]: string } = {
+    0: "Waiting for Seller",
+    1: "Waiting for Buyer",
+    2: "Waiting for Third Party",
+    3: "Meeting Scheduled",
   };
 
   return (
@@ -37,9 +33,8 @@ function OngoingTransactions({ files }: { files: File[] }) {
                   <ul className="flex flex-col font-rmono text-xs text-gray-800 gap-1">
                     <div>
                       <li className="uppercase p-1 bg-white">
-                        {getRandomMessage()}
+                        {statusLabels[file.saleStatus] || "Unknown Status"}
                       </li>
-                      {/* <li>{file.propertyDetails.propertyName}</li> */}
                     </div>
                     <div>
                       <li>${file.salePrice.toLocaleString()}</li>
