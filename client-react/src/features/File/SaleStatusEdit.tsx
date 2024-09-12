@@ -73,7 +73,7 @@ export default function SaleStatusEdit({ id, status }: StatusEditProps) {
             </select>
           ) : (
             <button
-              className="font-rmono uppercase p-1 bg-white text-sm py-1 pl-1 pr-3"
+              className="font-rmono font-semibold uppercase p-1 bg-white text-sm py-1 pl-1 pr-3"
               onClick={handleEditClick}
             >
               {statusText}
