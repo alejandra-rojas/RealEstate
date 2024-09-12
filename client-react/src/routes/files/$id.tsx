@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { File } from "../../types/types";
+import { File, Status } from "../../types/types";
 import { useQuery } from "@tanstack/react-query";
 import { fetchFileById } from "../../utils/api";
 import StatusEdit from "../../features/File/StatusEdit";
@@ -8,6 +8,7 @@ import Buyer from "../../features/File/Buyer.ui";
 import Events from "../../features/File/Events.ui";
 import Notes from "../../features/File/Notes.ui";
 import Documentation from "../../features/File/Documentation";
+import SaleStatusEdit from "../../features/File/SaleStatusEdit";
 
 export const Route = createFileRoute("/files/$id")({
   component: SingleFile,
@@ -68,7 +69,12 @@ function SingleFile() {
               </div>
               <p></p>
             </div>
-            <StatusEdit id={id} status={file.status} />
+            <div className="flex gap-2">
+              <StatusEdit id={id} status={file.status} />
+              {file.status === Status.UnderOffer && (
+                <SaleStatusEdit id={id} status={file.saleStatus} />
+              )}
+            </div>
           </div>
 
           <div className="flex gap-6">
