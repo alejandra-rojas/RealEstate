@@ -18,6 +18,7 @@ public class Property
     public int PropertyLiasonAgentId { get; set; }
     public int SellerId { get; set; }
     public int? BuyerId { get; set; }
+    public Boolean HasDocuments { get; set; } = false;
 
     public virtual PropertyDetails? PropertyDetails { get; set; }
     public virtual Seller? Seller { get; set; }

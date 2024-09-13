@@ -99,12 +99,12 @@ public class PortfolioRepository(PortfolioDbContext context) : IPortfolioReposit
         var newProperty = new Property
         {
             SalePrice = request.SalePrice,
-            AgreedCommission = 3.5,
+            AgreedCommission = 3,
             Status = Status.Inactive,
             PropertyDetails = propertyDetails,
             PropertyDetailsId = propertyDetails.PropertyDetailsId,
             PropertyLiasonAgentId = request.PropertyLiasonAgentId,
-            SellerId = 2
+            SellerId = 4
         };
 
         _context.PropertyDetails.Add(propertyDetails);

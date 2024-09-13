@@ -12,6 +12,9 @@ public class Buyer
 
     public required string PrimaryNumber { get; set; }
 
+    public Boolean HasDocuments { get; set; } = false;
+
+
     [JsonIgnore]
     public virtual ICollection<Property> Properties { get; set; } = new List<Property>();
 

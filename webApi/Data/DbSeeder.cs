@@ -43,7 +43,7 @@ public static class DbSeeder
                         PrimaryNumber = "735 102-4654",
                         Email = "betty.maldonado@drealestate.com",
                         Photo = "https://storage4realestate.blob.core.windows.net/container-imgs/agent1.png"
-                    }
+                    },
                 };
 
             context.AddRange(agents);
@@ -58,16 +58,19 @@ public static class DbSeeder
                     {
                         FullName = "Oliver Smith",
                         PrimaryNumber = "735 555-1234",
+                        HasDocuments = true,
                     },
                     new Buyer
                     {
                         FullName = "Amelia Johnson",
                         PrimaryNumber = "735 555-5678",
+                        HasDocuments = true,
                     },
                     new Buyer
                     {
                         FullName = "William Brown",
                         PrimaryNumber = "735 555-9012",
+                        HasDocuments = true,
                     }
                 };
 
@@ -83,17 +86,27 @@ public static class DbSeeder
                     {
                         FullName = "Michael Harris",
                         PrimaryNumber = "735 555-3456",
+                        HasDocuments = true,
                     },
                     new Seller
                     {
                         FullName = "Elizabeth King",
                         PrimaryNumber = "735 555-7890",
+                        HasDocuments = true,
                     },
                     new Seller
                     {
                         FullName = "David Evans",
                         PrimaryNumber = "735 555-2345",
+                        HasDocuments = true,
+                    },
+                    new Seller
+                    {
+                        FullName = "no seller",
+                        PrimaryNumber = "735 555-2345",
+                        HasDocuments = false,
                     }
+
                 };
 
             context.AddRange(sellers);
@@ -300,7 +313,8 @@ public static class DbSeeder
                     SalePrice = 500000,
                     AgreedCommission = 3.5,
                     Status = Status.Active,
-                    BuyerId = 1
+                    BuyerId = 1,
+                    HasDocuments = true,
                 },
                 new Property
                 {
@@ -311,7 +325,8 @@ public static class DbSeeder
                     AgreedCommission = 3,
                     Status = Status.UnderOffer,
                     SaleStatus = SaleStatus.W4Buyer,
-                    BuyerId = 2
+                    BuyerId = 2,
+                    HasDocuments = true,
                 },
                 new Property
                 {
@@ -321,7 +336,8 @@ public static class DbSeeder
                     SalePrice = 400000,
                     AgreedCommission = 4,
                     Status = Status.Sold,
-                    BuyerId = 3
+                    BuyerId = 3,
+                    HasDocuments = true,
                 },
                 new Property
                 {
@@ -331,6 +347,7 @@ public static class DbSeeder
                     SalePrice = 620000,
                     AgreedCommission = 2.5,
                     Status = Status.Active,
+                    HasDocuments = true,
                 },
                 new Property
                 {
@@ -341,7 +358,8 @@ public static class DbSeeder
                     AgreedCommission = 4,
                     Status = Status.UnderOffer,
                     SaleStatus = SaleStatus.MettingScheduled,
-                    BuyerId = 2
+                    BuyerId = 2,
+                    HasDocuments = true,
                 },
                 new Property
                 {
@@ -352,7 +370,8 @@ public static class DbSeeder
                     AgreedCommission = 3,
                     Status = Status.UnderOffer,
                     SaleStatus = SaleStatus.W4Buyer,
-                    BuyerId = 3
+                    BuyerId = 3,
+                    HasDocuments = true,
                 },
                 new Property
                 {
@@ -363,7 +382,8 @@ public static class DbSeeder
                     AgreedCommission = 3,
                     Status = Status.UnderOffer,
                     SaleStatus = SaleStatus.W4ThirdParty,
-                    BuyerId = 1
+                    BuyerId = 1,
+                    HasDocuments = true,
                 },
                 new Property
                 {
@@ -373,6 +393,7 @@ public static class DbSeeder
                     SalePrice = 910000,
                     AgreedCommission = 3.5,
                     Status = Status.Active,
+                    HasDocuments = true,
                 },
                 new Property
                 {
@@ -383,7 +404,8 @@ public static class DbSeeder
                     AgreedCommission = 3.5,
                     Status = Status.UnderOffer,
                     SaleStatus = SaleStatus.W4Seller,
-                    BuyerId = 3
+                    BuyerId = 3,
+                    HasDocuments = true,
                 },
                 new Property
                 {
@@ -393,6 +415,7 @@ public static class DbSeeder
                     SalePrice = 590000,
                     AgreedCommission = 4,
                     Status = Status.Active,
+                    HasDocuments = true,
                 },
                 new Property
                 {
@@ -402,6 +425,7 @@ public static class DbSeeder
                     SalePrice = 680000,
                     AgreedCommission = 3.5,
                     Status = Status.Active,
+                    HasDocuments = true,
                 },
                 new Property
         {
@@ -411,7 +435,8 @@ public static class DbSeeder
             SalePrice = 900000,
             AgreedCommission = 3.5,
             Status = Status.Sold,
-            BuyerId = 1
+            BuyerId = 1,
+            HasDocuments = true,
         },
         new Property
         {
@@ -421,7 +446,8 @@ public static class DbSeeder
             SalePrice = 1850000,
             AgreedCommission = 4,
             Status = Status.Sold,
-            BuyerId = 2
+            BuyerId = 2,
+            HasDocuments = true,
         },
         new Property
         {
@@ -431,7 +457,8 @@ public static class DbSeeder
             SalePrice = 850000,
             AgreedCommission = 3.5,
             Status = Status.Sold,
-            BuyerId = 3
+            BuyerId = 3,
+            HasDocuments = true,
         },
         new Property
         {
@@ -441,6 +468,7 @@ public static class DbSeeder
             SalePrice = 1200000,
             AgreedCommission = 3,
             Status = Status.Active,
+            HasDocuments = true,
         },
         new Property
         {
@@ -450,6 +478,7 @@ public static class DbSeeder
             SalePrice = 2000000,
             AgreedCommission = 3.5,
             Status = Status.Active,
+            HasDocuments = true,
         }
             };
             context.AddRange(propertiesFiles);
