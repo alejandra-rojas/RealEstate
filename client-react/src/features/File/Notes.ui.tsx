@@ -90,7 +90,6 @@ function AddNewNote({ onClose, id }: { onClose: () => void; id: string }) {
       const newNote = newNoteDescription;
       mutation.mutate(newNote);
       setNewNoteDescription("");
-      console.log(newNote);
     }
   };
 
