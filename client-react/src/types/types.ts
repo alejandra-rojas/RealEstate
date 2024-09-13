@@ -11,6 +11,7 @@ export interface Asset {
   numberOfRooms: number;
   description: string;
   photo: string;
+  hasDocuments: boolean;
 }
 
 export enum Status {
@@ -43,6 +44,7 @@ interface Seller {
   sellerId: number;
   fullName: string;
   primaryNumber: string;
+  hasDocuments: boolean;
 }
 
 interface PropertyLiasonAgent {
@@ -57,6 +59,7 @@ interface Buyer {
   buyerId: number;
   fullName: string;
   primaryNumber: string;
+  hasDocuments: boolean;
 }
 
 interface Event {
@@ -73,6 +76,7 @@ export interface File {
   agreedCommission: number;
   status: number;
   saleStatus: number;
+  hasDocuments: boolean;
   propertyDetailsId: number;
   propertyLiasonAgentId: number;
   sellerId: number;

@@ -101,7 +101,7 @@ function SingleFile() {
                   <li>Number of rooms: {file.propertyDetails.numberOfRooms}</li>
                 </ul>
               </div>
-              <Seller seller={file.seller} />
+              {file.sellerId !== 4 && <Seller seller={file.seller} />}
 
               {file!.buyer ? (
                 <Buyer buyer={file.buyer} />
@@ -115,7 +115,10 @@ function SingleFile() {
             </div>
 
             <div className="flex flex-col w-2/3 gap-4">
-              <Documentation hasBuyer={!!file.buyer} />
+              <Documentation
+                hasDocs={file.hasDocuments}
+                hasBuyer={!!file.hasDocuments}
+              />
               <div className="flex gap-4">
                 <Notes notes={file.notes} id={id} />
                 {file.events && file.events.length > 0 ? (

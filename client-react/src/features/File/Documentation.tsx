@@ -46,10 +46,14 @@ const CheckboxIconSimple = ({ width = 12, height = 11 }) => (
 );
 
 interface DocumentationProps {
+  hasDocs: boolean;
   hasBuyer: boolean;
 }
 
-export default function Documentation({ hasBuyer }: DocumentationProps) {
+export default function Documentation({
+  hasDocs,
+  hasBuyer,
+}: DocumentationProps) {
   return (
     <article className="mb-1">
       <div className="flex justify-between pb-1 border-b border-gray-400">
@@ -57,71 +61,81 @@ export default function Documentation({ hasBuyer }: DocumentationProps) {
           / Digital dOCUMENTATION
         </h3>
       </div>
+
       <ul className="flex pl-3 mb-3 border-b border-dotted border-gray-400 ">
-        <li className="w-1/3 flex flex-col border-l border-dotted border-gray-400 pl-3">
-          <div className="pt-1 flex items-center gap-2 ">
-            <SquareIcon />
-            <h5 className="font-rmono uppercase text-sm text-almostblack ">
-              Property:
-            </h5>
-          </div>
-          <ul className="py-2 flex flex-col gap-4 gap-y-2 font-rmono text-xs uppercase ">
-            <li className="flex items-center gap-1 ">
-              <CheckboxIcon />
-              <p>Property deed</p>
+        {!hasDocs && (
+          <p className="font-rmono py-2 text-xs">
+            No documentation has been provided for this property.
+          </p>
+        )}
+        {hasDocs && (
+          <>
+            <li className="w-1/3 flex flex-col border-l border-dotted border-gray-400 pl-3">
+              <div className="pt-1 flex items-center gap-2 ">
+                <SquareIcon />
+                <h5 className="font-rmono uppercase text-sm text-almostblack ">
+                  Property:
+                </h5>
+              </div>
+              <ul className="py-2 flex flex-col gap-4 gap-y-2 font-rmono text-xs uppercase ">
+                <li className="flex items-center gap-1 ">
+                  <CheckboxIcon />
+                  <p>Property deed</p>
+                </li>
+                <li className="flex items-center gap-1">
+                  <CheckboxIconSimple />
+                  <p>tax payment receipt </p>
+                </li>
+                <li className="flex items-center gap-1 ">
+                  <CheckboxIcon />
+                  <p>Maintenance payment receipt</p>
+                </li>
+                <li className="flex items-center gap-1 ">
+                  <CheckboxIcon />
+                  <p>No-debt certificate</p>
+                </li>
+                <li className="flex items-center gap-1 ">
+                  <CheckboxIcon />
+                  <p>Construction declaration</p>
+                </li>
+              </ul>
             </li>
-            <li className="flex items-center gap-1">
-              <CheckboxIconSimple />
-              <p>tax payment receipt </p>
+            <li className="w-1/3 flex flex-col border-l border-dotted border-gray-400 pl-3">
+              <div className="pt-1 flex items-center gap-2 ">
+                <SquareIcon />
+                <h5 className="font-rmono uppercase text-sm text-almostblack ">
+                  Seller:
+                </h5>
+              </div>
+              <ul className="py-2 flex flex-col gap-4 gap-y-2  font-rmono text-xs uppercase ">
+                <li className="flex items-center gap-1 ">
+                  <CheckboxIcon />
+                  <p>id with photo&signature</p>
+                </li>
+                <li className="flex items-center gap-1">
+                  <CheckboxIconSimple />
+                  <p>Marriage certificate</p>
+                </li>
+                <li className="flex items-center gap-1 ">
+                  <CheckboxIcon />
+                  <p>Birth certificate</p>
+                </li>
+                <li className="flex items-center gap-1 ">
+                  <CheckboxIcon />
+                  <p>CURP</p>
+                </li>
+                <li className="flex items-center gap-1 ">
+                  <CheckboxIcon />
+                  <p>RFC</p>
+                </li>
+                <li className="flex items-center gap-1 ">
+                  <CheckboxIcon />
+                  <p>Proof of address</p>
+                </li>
+              </ul>
             </li>
-            <li className="flex items-center gap-1 ">
-              <CheckboxIcon />
-              <p>Maintenance payment receipt</p>
-            </li>
-            <li className="flex items-center gap-1 ">
-              <CheckboxIcon />
-              <p>No-debt certificate</p>
-            </li>
-            <li className="flex items-center gap-1 ">
-              <CheckboxIcon />
-              <p>Construction declaration</p>
-            </li>
-          </ul>
-        </li>
-        <li className="w-1/3 flex flex-col border-l border-dotted border-gray-400 pl-3">
-          <div className="pt-1 flex items-center gap-2 ">
-            <SquareIcon />
-            <h5 className="font-rmono uppercase text-sm text-almostblack ">
-              Seller:
-            </h5>
-          </div>
-          <ul className="py-2 flex flex-col gap-4 gap-y-2  font-rmono text-xs uppercase ">
-            <li className="flex items-center gap-1 ">
-              <CheckboxIcon />
-              <p>id with photo&signature</p>
-            </li>
-            <li className="flex items-center gap-1">
-              <CheckboxIconSimple />
-              <p>Marriage certificate</p>
-            </li>
-            <li className="flex items-center gap-1 ">
-              <CheckboxIcon />
-              <p>Birth certificate</p>
-            </li>
-            <li className="flex items-center gap-1 ">
-              <CheckboxIcon />
-              <p>CURP</p>
-            </li>
-            <li className="flex items-center gap-1 ">
-              <CheckboxIcon />
-              <p>RFC</p>
-            </li>
-            <li className="flex items-center gap-1 ">
-              <CheckboxIcon />
-              <p>Proof of address</p>
-            </li>
-          </ul>
-        </li>
+          </>
+        )}
         {hasBuyer && (
           <li className="w-1/3 flex flex-col border-l border-dotted border-gray-400 pl-3">
             <div className="pt-1 flex items-center gap-2  ">
