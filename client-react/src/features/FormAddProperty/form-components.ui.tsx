@@ -10,7 +10,7 @@ export const FieldSet = ({ label, children }: FieldSetProps) => {
           {label}
         </h2>
       )}
-      <div className="flex flex-col gap-4 mx-auto">{children}</div>
+      <div className="flex flex-col gap-2 mx-auto">{children}</div>
     </fieldset>
   );
 };

@@ -40,9 +40,14 @@ function NewForm() {
     <form
       id="addPropertyFile"
       onSubmit={handleSubmit(submitForm)}
-      className="flex flex-col gap-6"
+      className="flex flex-col gap-8"
     >
       <FieldSet>
+        <div className="flex justify-between pb-2 mt-2 border-b border-gray-400">
+          <h3 className="font-rmono font-bold uppercase text-sm text-almostblack ">
+            General details
+          </h3>
+        </div>
         <div className="flex gap-4">
           <Field label="property Name" error={errors.propertyName?.message}>
             <input
