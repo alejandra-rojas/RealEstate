@@ -30,25 +30,25 @@ function RecentNotes({ files }: { files: File[] }) {
       </h3>
 
       {latestNotes.length > 0 ? (
-        latestNotes.map((note) => (
-          <ul className="flex flex-col gap-3">
-            <Link to={`/files/${note.propertyId}`} key={note.noteId}>
-              <li
-                key={note.noteId}
-                className="flex flex-col gap-1 pb-3 border-b border-dotted border-gray-400 "
-              >
+        <ul className="flex flex-col gap-3">
+          {latestNotes.map((note) => (
+            <li
+              key={note.noteId}
+              className="flex flex-col gap-1 pb-3 border-b border-dotted border-gray-400"
+            >
+              <Link to={`/files/${note.propertyId}`}>
                 <p className="w-[85%] leading-snug text-sm font-medium pt-1">
                   {note.description}
                 </p>
-                <div className="flex gap-1  font-normal font-rmono text-[0.7rem] uppercase">
+                <div className="flex gap-1 font-normal font-rmono text-[0.7rem] uppercase">
                   <p>{new Date(note.createdAt).toLocaleString()}</p>
-                  <p className="">{note.author.split(" ")[0]} </p>
-                  <p className="">-{note.propertyName}</p>
+                  <p>{note.author.split(" ")[0]}</p>
+                  <p>-{note.propertyName}</p>
                 </div>
-              </li>
-            </Link>
-          </ul>
-        ))
+              </Link>
+            </li>
+          ))}
+        </ul>
       ) : (
         <p>No recent notes available</p>
       )}

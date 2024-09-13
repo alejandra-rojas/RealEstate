@@ -40,7 +40,7 @@ function Notes({ notes, id }: { notes: Note[]; id: string }) {
       </div>
       {isAddingNote && <AddNewNote onClose={handleCloseForm} id={id} />}
       {notes.length === 0 ? (
-        <p>No notes on this file.</p>
+        <p className="font-rmono text-xs">No notes on this file</p>
       ) : (
         <ul className="flex flex-col gap-4 pr-5">
           {notes
