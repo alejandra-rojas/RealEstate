@@ -4,10 +4,14 @@ on:
   push:
     branches:
       - master
+    paths:
+      - "client-react/**" # Only trigger on changes in the frontend folder
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
       - master
+    paths:
+      - "client-react/**" # Only trigger on changes in the frontend folder
 
 jobs:
   build_and_deploy_job:
