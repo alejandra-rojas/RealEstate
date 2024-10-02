@@ -1,5 +1,8 @@
 name: Deploy WebApi
 
+env:
+  AZURE_WEBAPP_NAME: backend-realestate # set this to your application's name
+
 on:
   workflow_dispatch:
 
@@ -32,3 +35,14 @@ jobs:
 
       - name: Build with dotnet
         run: dotnet build ./webApi/webApi.csproj --configuration Release --no-restore
+
+      - name: dotnet publish
+        run: dotnet build ./webApi/webApi.csproj --configuration Release --output ./publish
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.API_PUBLISH_SECRET }}
+          package: ./publish
