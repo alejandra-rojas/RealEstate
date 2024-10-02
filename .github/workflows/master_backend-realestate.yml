@@ -3,15 +3,22 @@
 
 name: Build and deploy ASP.Net Core app to Azure Web App - backend-realestate
 
+env:
+  AZURE_WEBAPP_NAME: backend-realestate # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: "." # set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: "8.0" # set this to the dot net version to use
+
 on:
   push:
     branches:
       - master
+    paths:
+      - "webApi/**" # Only trigger on changes in the backend folder
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -19,7 +26,7 @@ jobs:
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.x'
+          dotnet-version: "8.x"
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
@@ -34,10 +41,10 @@ jobs:
           path: ${{env.DOTNET_ROOT}}/myapp
 
   deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'Production'
+      name: "Production"
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
       id-token: write #This is required for requesting the JWT
@@ -47,19 +54,18 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: .net-app
-      
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_89ED923C2E2A4ADD9F19855720B14A32 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_FA2E64112B964C17BB2AB5ECFBF6413A }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_ED21ECAC06E14A3A931FD9AB2E9C911E }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_2871DBBC1EFB4A8CBFE456295B32E5EE }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8469777E68384FD2989A2753FA2C5945 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_ED6CBB3A5CF74F41935CF6C659A86D62 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'backend-realestate'
-          slot-name: 'Production'
+          app-name: "backend-realestate"
+          slot-name: "Production"
           package: .
-          
