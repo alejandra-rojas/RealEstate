@@ -29,13 +29,13 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ./myapp # Ensure we use forward slashes here
+        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}\\myapp" # Using backward slashes for Windows path
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ./myapp # Reference the published directory with forward slashes
+          path: "${{env.DOTNET_ROOT}}\\myapp" # Using backward slashes for the upload path
 
   deploy:
     runs-on: windows-latest
@@ -44,7 +44,7 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write # This is required for requesting the JWT
+      id-token: write #This is required for requesting the JWT
 
     steps:
       - name: Download artifact from build job
@@ -65,4 +65,4 @@ jobs:
         with:
           app-name: 'realstate-server'
           slot-name: 'Production'
-          package: ./myapp # Deploy the application from the correct directory
+          package: "${{env.DOTNET_ROOT}}\\myapp" # Using backward slashes for deployment path
