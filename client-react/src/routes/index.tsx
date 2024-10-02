@@ -26,7 +26,7 @@ function Homepage() {
       <section className="relative shadow-sm">
         <img
           className="w-full h-[450px] object-cover"
-          src="src/assets/hero1.jpg"
+          src="https://storage4realestate.blob.core.windows.net/container-imgs/hero1.jpg"
           alt="image-hero"
         />
         <div className="absolute top-[20%] left-[3%] w-2/3 p-6 flex flex-col gap-4">
