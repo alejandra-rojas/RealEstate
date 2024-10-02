@@ -1,0 +1,34 @@
+name: Deploy WebApi
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - master
+    paths:
+      - "webApi/**" # Only trigger on changes in the frontend folder
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - master
+    paths:
+      - "webApi/**" # Only trigger on changes in the frontend folder
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.x"
+
+      - name: Install dependencies
+        run: dotnet restore ./webApi/webApi.csproj
+
+      - name: Build with dotnet
+        run: dotnet build ./webApi/webApi.csproj --configuration Release --no-restore
