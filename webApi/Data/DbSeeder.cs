@@ -563,7 +563,7 @@ public static class DbSeeder
         },
         new Event
         {
-            Date = new DateTime(2024, 08, 01),
+            Date = new DateTime(2024, 10, 04),
             Description = "Handover of keys and final payment.",
             PropertyId = 13
         },
