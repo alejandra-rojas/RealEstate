@@ -4,10 +4,14 @@ on:
   push:
     branches:
       - master
+    paths:
+      - "client-react/**" # Only trigger on changes in the frontend folder
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
       - master
+    paths:
+      - "client-react/**" # Only trigger on changes in the frontend folder
 
 jobs:
   build_and_deploy_job:
@@ -30,7 +34,9 @@ jobs:
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "./client-react" # App source code path
           api_location: "" # Api source code path - optional
-          output_location: "build" # Built app content directory - optional
+          output_location: "dist" # Built app content directory - optional
+        env:
+          VITE_CLERK_PUBLISHABLE_KEY: ${{ secrets.VITE_CLERK_PUBLISHABLE_KEY }}
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
