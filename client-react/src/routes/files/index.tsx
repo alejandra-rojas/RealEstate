@@ -24,8 +24,6 @@ function Files() {
     queryFn: fetchFiles,
   });
 
-  console.log(files);
-
   const initialFilterState = {
     filterText: "",
     minPrice: 320000,

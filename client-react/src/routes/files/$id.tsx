@@ -35,8 +35,6 @@ function SingleFile() {
     return <p>An error occurred while fetching the property details.</p>;
   }
 
-  console.log(file);
-
   return (
     <>
       {isFetched && file && (

@@ -19,8 +19,6 @@ function Dashboard() {
     queryFn: fetchFiles,
   });
 
-  console.log(files);
-
   return (
     isFetched &&
     files && (

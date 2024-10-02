@@ -18,7 +18,6 @@ function UpcomingEvents({ files }: { files: File[] }) {
       return eventDate >= today && eventDate <= nextWeek;
     });
 
-  console.log(upcomingEvents);
   return (
     <article className="flex flex-col bg-[#eeeeee] w-[60%]  border border-gray-200">
       <div className="p-2 font-rmono uppercase text-sm text-almostblack flex justify-between pb-1 border-b border-gray-400">
